@@ -22,8 +22,8 @@ export const LabelForm = styled.label`
   font-weight: 700;
   font-size: 12px;
   color: #333;
-  transition: color 0.3s ease;
-  transition: font-size 0.3s ease;
+  transition: color 300ms ease;
+  transition: font-size 300ms ease;
 
   :focus-within {
     color: #000;
@@ -35,7 +35,7 @@ export const IconWrapper = styled.div`
   position: absolute;
   top: 55%;
   left: 6px;
-  transition: color 0.3s ease;
+  transition: color 300ms ease;
   color: #777;
 `;
 
@@ -52,7 +52,7 @@ export const InputForm = styled.input`
   border-radius: 10px;
   color: #333;
   outline: none;
-  transition: border-color 0.3s ease;
+  transition: border-color 300ms ease;
 
   :hover,
   :focus {
@@ -85,7 +85,7 @@ export const BtnForm = styled.button`
   border-radius: 10px;
   cursor: ${props => (props.isLoading ? 'not-allowed' : 'pointer')};
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.3s ease;
+  transition: background-color 300ms ease;
 
   :hover,
   :focus {

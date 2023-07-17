@@ -8,7 +8,7 @@ export const FilterName = styled.label`
   font-size: 12px;
   color: #333;
 
-  transition: color 0.3s ease, font-size 0.3s ease;
+  transition: color 300ms ease, font-size 300ms ease;
 
   :focus-within {
     color: #000;
@@ -20,7 +20,7 @@ export const IconWrapper = styled.div`
   position: absolute;
   top: 55%;
   left: 6px;
-  transition: color 0.3s ease;
+  transition: color 300ms ease;
   color: ${props => (props.isEmptyFilter ? '#f4442e' : '#777')};
 `;
 
@@ -38,7 +38,7 @@ export const FilterInput = styled.input`
   border-radius: 10px;
   color: #333;
   outline: none;
-  transition: border-color 0.3s ease;
+  transition: border-color 300ms ease;
 
   :hover,
   :focus {

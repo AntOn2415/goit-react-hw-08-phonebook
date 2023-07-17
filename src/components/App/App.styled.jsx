@@ -5,10 +5,9 @@ export const ContainerDiv = styled.div`
   flex-direction: column;
   margin-left: auto;
   margin-right: auto;
-  padding: 30px 60px;
-  max-width: 600px;
+  padding: 30px 15px;
+  max-width: 375px;
   min-height: 650px;
-  background: linear-gradient(to bottom, #72eba6, #096b32);
 `;
 
 export const TitleH1 = styled.h1`
