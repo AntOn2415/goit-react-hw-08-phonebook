@@ -47,7 +47,7 @@ export const FirstLetterNameDiv = styled.div`
   transition: background-color 300ms, color 250ms ease;
 `;
 
-export const ContactCard = styled.p`
+export const ContactCardDiv = styled.div`
   display: flex;
   align-items: center;
   padding: 4px 8px;
@@ -61,7 +61,7 @@ export const ContactContentP = styled.p`
   cursor: pointer;
 `;
 
-export const NameSpan = styled.span`
+export const ContactNameP = styled.span`
   font-size: 16px;
 `;
 export const PhoneSpan = styled.span`
@@ -93,7 +93,7 @@ export const ContactActionsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #27ae60;
+  border-top: 1px solid #27ae60;
   background-color: #e7e7e7;
   border-radius: 8px;
   border-top-right-radius: 0;
