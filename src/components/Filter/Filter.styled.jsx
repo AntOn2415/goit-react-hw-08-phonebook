@@ -30,7 +30,7 @@ export const LabelSpan = styled.span`
 `;
 
 export const FilterInput = styled.input`
-  width: 180px;
+  max-width: 344px;
   padding: 8px;
   padding-left: 22px;
   border: 1px solid #ccc;

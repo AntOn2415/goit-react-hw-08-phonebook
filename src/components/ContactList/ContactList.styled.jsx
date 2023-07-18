@@ -21,11 +21,11 @@ export const LoaderRotatingLinesContainer = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(39, 174, 96, 0.5);
+  background-color: rgb(247, 247, 247, 0.3);
   display: flex;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(4px);
 `;
 
 export const EmptyContactsMessage = styled.p`
