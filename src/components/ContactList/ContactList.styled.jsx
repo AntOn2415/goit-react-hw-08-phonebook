@@ -5,12 +5,14 @@ export const ContactUl = styled.ul`
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
 `;
 
 
 export const LoaderContainer = styled.div`
-  padding: 0;
+display: flex;
+justify-content: center;
+  padding-top: 10px;
   margin: 0;
   height: 30px;
 `;

@@ -5,7 +5,7 @@ import { BsSearch } from 'react-icons/bs';
 import { setFilter } from 'redux/slices/filterSlice';
 import {
   FilterName,
-  LabelSpan,
+  LabelP,
   FilterInput,
   IconWrapper,
 } from './Filter.styled';
@@ -34,7 +34,7 @@ const Filter = () => {
       <IconWrapper isEmptyFilter={isEmptyFilter}>
         <BsSearch />
       </IconWrapper>
-      <LabelSpan>Find contacts by Name</LabelSpan>
+      <LabelP>Find contacts by Name</LabelP>
       <DebounceInput
         element={FilterInput}
         type="text"

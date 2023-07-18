@@ -24,13 +24,13 @@ export const IconWrapper = styled.div`
   color: ${props => (props.isEmptyFilter ? '#f4442e' : '#777')};
 `;
 
-export const LabelSpan = styled.span`
+export const LabelP = styled.p`
   margin-left: 6px;
   height: 16px;
 `;
 
 export const FilterInput = styled.input`
-  max-width: 344px;
+  min-width: 180px;
   padding: 8px;
   padding-left: 22px;
   border: 1px solid #ccc;
