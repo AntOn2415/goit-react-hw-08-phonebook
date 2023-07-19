@@ -20,3 +20,19 @@ export const memoizedFilteredContactsSelector = createSelector(
     );
   }
 );
+
+export const uniqueFirstLettersContactsSelector = createSelector(
+  [memoizedFilteredContactsSelector],
+  (filteredContacts) => {
+    const firstLetters = {};
+
+    filteredContacts.forEach((contact) => {
+      const firstLetter = contact.name.charAt(0).toUpperCase();
+      if (!firstLetters[firstLetter]) {
+        firstLetters[firstLetter] = contact.id;
+      }
+    });
+
+    return Object.values(firstLetters);
+  }
+);

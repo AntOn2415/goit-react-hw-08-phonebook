@@ -22,11 +22,18 @@ const fadeIn = keyframes`
   }
 `;
 
-export const ContactLi = styled.li``;
+export const ContactLi = styled.li`
+display: flex`;
+
+
+export const FirstLetterContactsGroupDiv = styled.div`
+font-size: 16px;
+`;
 
 export const ContactContainerDiv = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
   min-width: 210px;
   border: 1px solid #27ae60;
   border-radius: 8px;
@@ -40,7 +47,6 @@ export const FirstLetterNameDiv = styled.div`
   min-width: 32px;
   min-height: 32px;
   font-size: 14px;
-  background-color: #27ae60;
   color: #fff;
   border-radius: 50%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
@@ -61,7 +67,7 @@ export const ContactContentP = styled.p`
   cursor: pointer;
 `;
 
-export const ContactNameP = styled.span`
+export const NameSpan = styled.span`
   font-size: 16px;
 `;
 export const PhoneSpan = styled.span`
@@ -84,8 +90,7 @@ export const CallA = styled.a`
 
   :hover,
   :focus {
-    background-color: #fff;
-    color: #27ae60;
+    background-color: #2ecc71;
   }
 `;
 

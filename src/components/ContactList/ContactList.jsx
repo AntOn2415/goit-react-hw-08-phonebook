@@ -49,7 +49,7 @@ const ContactList = () => {
     );
   }
 
-  if (contactsLength === 0 && showEmptyMessage) {
+  if (contactsLength === 0 && showEmptyMessage && !error) {
     return (
       <EmptyContactsMessage>Please add your first contact</EmptyContactsMessage>
     );
@@ -76,3 +76,6 @@ const ContactList = () => {
 };
 
 export default ContactList;
+
+
+
