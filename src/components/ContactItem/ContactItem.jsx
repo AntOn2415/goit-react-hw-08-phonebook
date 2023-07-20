@@ -4,15 +4,17 @@ import { useSelector, useDispatch } from 'react-redux';
 import { BsPencil, BsTelephone, BsDashCircle } from 'react-icons/bs';
 import TextTruncate from 'react-text-truncate';
 import { deleteContact } from 'redux/operations/contactsOperations';
-import { uniqueFirstLettersContactsSelector } from 'redux/selectors';
+import { uniqueFirstLettersContactsSelector, isActionsContainerOpenSelector, isAnyContainerOpenSelector } from 'redux/selectors';
 import { ContactLi, FirstLetterContactsGroupDiv, ContactContainerDiv, FirstLetterNameDiv, ContactCardDiv, ContactContentP, NameSpan, PhoneSpan, CallA, ContactActionsContainer, EditContactDiv, ContactBtn } from './ContactItem.styled';
 import { Loader } from '../Loader/Loader';
 
 const ContactItem = ({ contact }) => {
   const uniqueFirstLetters = useSelector(uniqueFirstLettersContactsSelector);
+  const isAnyContainerOpen = useSelector(isAnyContainerOpenSelector);
+  const isActionsContainerOpen = useSelector(isActionsContainerOpenSelector(contact.id));
+
   const dispatch = useDispatch();
   const [isDeleting, setIsDeleting] = useState(false);
-  const [openIndex, setOpenIndex] = useState(null);
 
   const { id, name, phone } = contact;
 
@@ -22,10 +24,18 @@ const ContactItem = ({ contact }) => {
       .padStart(6, 0)}`;
   }
 
-  const toggleActions = (i) => {
-    console.log(i);
-    setOpenIndex((prevIndex) => (prevIndex === i ? null : i));
+  const toggleActions = () => {
+    if (isActionsContainerOpen) {
+      dispatch({ type: 'contacts/closeContactActions', payload: contact.id });
+    } else {
+      if (isAnyContainerOpen) {
+      dispatch({ type: 'contacts/closeAllContactActions' });
+      }
+      dispatch({ type: 'contacts/toggleContactActions', payload: contact.id });
+    }
   };
+
+
 
   const onDeleteContact = (contactId) => {
     setIsDeleting(true);
@@ -55,7 +65,7 @@ const ContactItem = ({ contact }) => {
           </CallA>
         </ContactCardDiv>
 
-        {openIndex === id && (
+        {isActionsContainerOpen &&  (
           <ContactActionsContainer>
             <EditContactDiv>
               <BsPencil />
@@ -85,7 +95,4 @@ ContactItem.propTypes = {
 };
 
 export default ContactItem;
-
-
-
 

@@ -19,7 +19,7 @@ export const FilterName = styled.label`
 export const IconWrapper = styled.div`
   position: absolute;
   top: 55%;
-  left: 6px;
+  left: 10px;
   transition: color 300ms ease;
   color: ${props => (props.isEmptyFilter ? '#f4442e' : '#777')};
 `;
@@ -32,7 +32,7 @@ export const LabelP = styled.p`
 export const FilterInput = styled.input`
   min-width: 180px;
   padding: 8px;
-  padding-left: 22px;
+  padding-left: 26px;
   border: 1px solid #ccc;
   border-color: 2ecc71;
   border-radius: 10px;

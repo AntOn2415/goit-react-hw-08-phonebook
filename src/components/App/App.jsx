@@ -1,6 +1,7 @@
 import { ToastContainer } from 'react-toastify';
 import ContactList from '../ContactList';
 import ContactForm from '../ContactForm';
+// import RegisterForm from '../RegisterForm';
 import Filter from '../Filter';
 import { toastConfig } from 'helpers/toastConfig';
 import { ContainerDiv, TitleH1, TitleH2 } from './App.styled';
@@ -11,6 +12,7 @@ const App = () => {
     <ContainerDiv>
       <TitleH1>Phonebook</TitleH1>
       <ContactForm />
+      {/* <RegisterForm /> */}
       <TitleH2>Contacts</TitleH2>
       <Filter />
       <ContactList />
