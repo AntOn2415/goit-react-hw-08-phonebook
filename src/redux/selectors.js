@@ -36,20 +36,3 @@ export const uniqueFirstLettersContactsSelector = createSelector(
     return Object.values(firstLetters);
   }
 );
-
-
-// export const isAnyContainerOpenSelector = state => Object.values(state.contacts.isActionsContainerOpen).some(open => open);
-
-// export const isActionsContainerOpenSelector = (contactId) => (state) => state.contacts.isActionsContainerOpen[contactId];
-
-
-export const isActionsContainerOpenSelector = (contactId) =>
-  createSelector(
-    (state) => state.contacts.isActionsContainerOpen,
-    (isActionsContainerOpen) => isActionsContainerOpen[contactId]
-  );
-
-export const isAnyContainerOpenSelector = createSelector(
-  (state) => state.contacts.isActionsContainerOpen,
-  (isActionsContainerOpen) => Object.values(isActionsContainerOpen).some((open) => open)
-);

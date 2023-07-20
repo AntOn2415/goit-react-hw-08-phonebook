@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { BsPersonPlus, BsUnlock, BsLock, BsEnvelopeAt } from 'react-icons/bs';
+import { BsLock, BsEnvelopeAt } from 'react-icons/bs';
 import { authOperations } from 'redux/auth';
 import { isLoadingSelector } from 'redux/selectors';
 import {

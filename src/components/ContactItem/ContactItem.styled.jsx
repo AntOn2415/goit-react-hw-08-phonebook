@@ -23,11 +23,11 @@ const fadeIn = keyframes`
 `;
 
 export const ContactLi = styled.li`
-display: flex`;
-
+  display: flex;
+`;
 
 export const FirstLetterContactsGroupDiv = styled.div`
-font-size: 16px;
+  font-size: 16px;
 `;
 
 export const ContactContainerDiv = styled.div`
@@ -64,6 +64,7 @@ export const ContactContentP = styled.p`
   display: flex;
   flex-direction: column;
   gap: 2px;
+  width: 100%;
   cursor: pointer;
 `;
 
@@ -75,10 +76,14 @@ export const PhoneSpan = styled.span`
 `;
 
 export const CallA = styled.a`
+  padding-left: 20px;
+  cursor: default;
+`;
+
+export const ContainerIconSpan = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: auto;
   width: 32px;
   height: 32px;
   font-size: 14px;
@@ -87,6 +92,7 @@ export const CallA = styled.a`
   border-radius: 50%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
   transition: background-color 300ms, color 250ms ease;
+  cursor: pointer;
 
   :hover,
   :focus {
@@ -107,7 +113,6 @@ export const ContactActionsContainer = styled.div`
   padding: 8px 8px;
   animation: ${({ open }) => (open ? fadeIn : fadeOut)} 300ms ease;
 `;
-
 
 export const EditContactDiv = styled.div`
   display: flex;
@@ -156,7 +161,7 @@ export const ContactBtn = styled.button`
   :focus,
   :active {
     background-color: #fff;
-    color: #f4442e
+    color: #f4442e;
   }
 
   :disabled {

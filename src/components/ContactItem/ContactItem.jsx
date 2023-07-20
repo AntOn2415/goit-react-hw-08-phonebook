@@ -4,19 +4,32 @@ import { useSelector, useDispatch } from 'react-redux';
 import { BsPencil, BsTelephone, BsDashCircle } from 'react-icons/bs';
 import TextTruncate from 'react-text-truncate';
 import { deleteContact } from 'redux/operations/contactsOperations';
-import { uniqueFirstLettersContactsSelector, isActionsContainerOpenSelector, isAnyContainerOpenSelector } from 'redux/selectors';
-import { ContactLi, FirstLetterContactsGroupDiv, ContactContainerDiv, FirstLetterNameDiv, ContactCardDiv, ContactContentP, NameSpan, PhoneSpan, CallA, ContactActionsContainer, EditContactDiv, ContactBtn } from './ContactItem.styled';
+import { uniqueFirstLettersContactsSelector } from 'redux/selectors';
+import {
+  ContactLi,
+  FirstLetterContactsGroupDiv,
+  ContactContainerDiv,
+  FirstLetterNameDiv,
+  ContactCardDiv,
+  ContactContentP,
+  NameSpan,
+  PhoneSpan,
+  CallA,
+  ContainerIconSpan,
+  ContactActionsContainer,
+  EditContactDiv,
+  ContactBtn,
+} from './ContactItem.styled';
 import { Loader } from '../Loader/Loader';
 
-const ContactItem = ({ contact }) => {
+const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
   const uniqueFirstLetters = useSelector(uniqueFirstLettersContactsSelector);
-  const isAnyContainerOpen = useSelector(isAnyContainerOpenSelector);
-  const isActionsContainerOpen = useSelector(isActionsContainerOpenSelector(contact.id));
 
   const dispatch = useDispatch();
   const [isDeleting, setIsDeleting] = useState(false);
 
   const { id, name, phone } = contact;
+  const isActionsContainerOpen = selectedContactId === contact.id;
 
   function getRandomHexColor() {
     return `#${Math.floor(Math.random() * 16777215)
@@ -24,20 +37,7 @@ const ContactItem = ({ contact }) => {
       .padStart(6, 0)}`;
   }
 
-  const toggleActions = () => {
-    if (isActionsContainerOpen) {
-      dispatch({ type: 'contacts/closeContactActions', payload: contact.id });
-    } else {
-      if (isAnyContainerOpen) {
-      dispatch({ type: 'contacts/closeAllContactActions' });
-      }
-      dispatch({ type: 'contacts/toggleContactActions', payload: contact.id });
-    }
-  };
-
-
-
-  const onDeleteContact = (contactId) => {
+  const onDeleteContact = contactId => {
     setIsDeleting(true);
     dispatch(deleteContact(contactId)).finally(() => {
       setIsDeleting(false);
@@ -46,26 +46,37 @@ const ContactItem = ({ contact }) => {
 
   return (
     <ContactLi>
-      <div style={{ width: '15px', height: '20px'}}>
-      {uniqueFirstLetters.includes(id) && (
-        <FirstLetterContactsGroupDiv>{name.charAt(0)}</FirstLetterContactsGroupDiv>
-      )}
+      <div style={{ width: '15px', height: '20px' }}>
+        {uniqueFirstLetters.includes(id) && (
+          <FirstLetterContactsGroupDiv>
+            {name.charAt(0)}
+          </FirstLetterContactsGroupDiv>
+        )}
       </div>
       <ContactContainerDiv>
         <ContactCardDiv>
-          <FirstLetterNameDiv style={{ backgroundColor: getRandomHexColor() }}>{name.charAt(0)}</FirstLetterNameDiv>
+          <FirstLetterNameDiv style={{ backgroundColor: getRandomHexColor() }}>
+            {name.charAt(0)}
+          </FirstLetterNameDiv>
           <ContactContentP onClick={() => toggleActions(id)}>
             <NameSpan>
-              <TextTruncate line={1} element="span" truncateText="..." text={name} />
+              <TextTruncate
+                line={1}
+                element="span"
+                truncateText="..."
+                text={name}
+              />
             </NameSpan>
             <PhoneSpan>{phone}</PhoneSpan>
           </ContactContentP>
           <CallA href={`tel:${phone}`} title="Call">
-            <BsTelephone />
+            <ContainerIconSpan>
+              <BsTelephone />
+            </ContainerIconSpan>
           </CallA>
         </ContactCardDiv>
 
-        {isActionsContainerOpen &&  (
+        {isActionsContainerOpen && (
           <ContactActionsContainer>
             <EditContactDiv>
               <BsPencil />
@@ -92,7 +103,8 @@ ContactItem.propTypes = {
     name: PropTypes.string.isRequired,
     phone: PropTypes.string.isRequired,
   }).isRequired,
+  selectedContactId: PropTypes.string,
+  toggleActions: PropTypes.func,
 };
 
 export default ContactItem;
-

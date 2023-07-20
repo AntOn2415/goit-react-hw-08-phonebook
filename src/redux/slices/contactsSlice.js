@@ -10,9 +10,6 @@ import {
   handleFulfilledOnFetchContacts,
   handleFulfilledOnAddContact,
   handleFulfilledOnDeleteContact,
-  handleToggleContactActions,
-  handleCloseContactActions,
-  handleCloseAllContactActions,
 } from './contactsHandlers';
 
 const defaultsStatus = {
@@ -29,17 +26,11 @@ const contactInitialState = {
   items: [],
   isLoading: false,
   error: null,
-  isActionsContainerOpen: {}, 
 };
 
 export const contactsSlice = createSlice({
   name: 'contacts',
   initialState: contactInitialState,
-  reducers: {
-    toggleContactActions: handleToggleContactActions,
-    closeContactActions: handleCloseContactActions,
-    closeAllContactActions: handleCloseAllContactActions,
-  },
   extraReducers: builder => {
     builder
       .addCase(fetchContacts.fulfilled, handleFulfilledOnFetchContacts)

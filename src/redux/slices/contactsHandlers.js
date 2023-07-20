@@ -35,16 +35,3 @@ export const handleFulfilledOnDeleteContact = (state, { payload }) => {
   };
 };
 
-export const handleToggleContactActions = (state, action) => {
-  state.isActionsContainerOpen[action.payload] = !state.isActionsContainerOpen[action.payload];
-};
-
-export const handleCloseContactActions  = (state, action) => {
-  state.isActionsContainerOpen[action.payload] = false;
-};
-
-export const handleCloseAllContactActions = (state) => {
-  Object.keys(state.isActionsContainerOpen).forEach((id) => {
-    state.isActionsContainerOpen[id] = false;
-  });
-};

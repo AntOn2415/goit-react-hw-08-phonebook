@@ -22,9 +22,13 @@ const ContactList = () => {
   const error = useSelector(errorSelector);
   const filteredContacts = useSelector(memoizedFilteredContactsSelector);
   const contacts = useSelector(contactsSelector);
-  const dispatch = useDispatch();
+
   const [isFetchingContacts, setIsFetchingContacts] = useState(false);
   const [showEmptyMessage, setShowEmptyMessage] = useState(false);
+  const [selectedContactId, setSelectedContactId] = useState(null);
+
+
+  const dispatch = useDispatch();
 
   const contactsLength = contacts.length;
   const isEmptyFilter = filteredContacts.length === 0;
@@ -40,6 +44,13 @@ const ContactList = () => {
   useEffect(() => {
     error && toast.error(error);
   }, [error]);
+
+  const toggleActions = (contactId) => {
+    setSelectedContactId((prevId) => (prevId === contactId ? null : contactId));
+  };
+
+  
+  console.log(toggleActions);
 
   if (isFetchingContacts) {
     return (
@@ -67,7 +78,12 @@ const ContactList = () => {
       {!isEmptyFilter && (
         <ContactUl>
           {filteredContacts.map(contact => (
-            <ContactItem key={contact.id} contact={contact} />
+            <ContactItem
+              key={contact.id}
+              contact={contact}
+              selectedContactId={selectedContactId}
+              toggleActions={toggleActions}
+            />
           ))}
         </ContactUl>
       )}
@@ -76,6 +92,3 @@ const ContactList = () => {
 };
 
 export default ContactList;
-
-
-
