@@ -17,7 +17,7 @@ function ContactForm() {
   const isLoading = useSelector(isLoadingSelector);
   const dispatch = useDispatch();
   const [name, setName] = useState('');
-  const [number, setPhone] = useState('');
+  const [number, setNumber] = useState('');
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
@@ -27,7 +27,7 @@ function ContactForm() {
         break;
 
       case 'number':
-        setPhone(value);
+        setNumber(value);
         break;
 
       default:
@@ -40,7 +40,7 @@ function ContactForm() {
 
     dispatch(addContact({ name, number }));
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
   return (

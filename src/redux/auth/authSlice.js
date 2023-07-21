@@ -14,7 +14,6 @@ const authSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder
-      .addCase(authOperations.register.pending, state => state)
       .addCase(authOperations.register.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;

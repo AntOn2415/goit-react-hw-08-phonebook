@@ -16,18 +16,18 @@ export const handleFulfilledOnFetchContacts = (state, { payload }) => {
 };
 
 export const handleFulfilledOnAddContact = (state, { payload }) => {
-  const { id, name, phone } = payload;
+  const { id, name, number } = payload;
 
   state.isLoading = false;
   state.error = null;
-  state.items.push({ id, name, phone });
-  toast.success(`Contact ${name} : ${phone} added successfully`);
+  state.items.push({ id, name, number });
+  toast.success(`Contact ${name} : ${number} added successfully`);
 };
 
 export const handleFulfilledOnDeleteContact = (state, { payload }) => {
-  const { id, name, phone } = payload;
+  const { id, name, number } = payload;
   const updatedItems = state.items.filter(contact => contact.id !== id);
-  toast.success(`Contact ${name} : ${phone} deleted successfully`);
+  toast.success(`Contact ${name} : ${number} deleted successfully`);
   return {
     ...state,
     isLoading: false,

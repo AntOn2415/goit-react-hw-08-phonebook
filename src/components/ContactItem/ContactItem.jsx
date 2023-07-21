@@ -30,11 +30,10 @@ const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [contactColors, setContactColors] = useState({});
 
-  const { id, name, phone } = contact;
+  const { id, name, number } = contact;
   const isActionsContainerOpen = selectedContactId === contact.id;
 
   useEffect(() => {
-    // Generate and store a random color for the contact's ID when the component mounts.
     if (!contactColors[contact.id]) {
       const newColor = getRandomHexColor();
       setContactColors((prevColors) => ({
@@ -74,9 +73,9 @@ const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
                 text={name}
               />
             </NameSpan>
-            <PhoneSpan>{phone}</PhoneSpan>
+            <PhoneSpan>{number}</PhoneSpan>
           </ContactContentP>
-          <CallA href={`tel:${phone}`} title="Call">
+          <CallA href={`tel:${number}`} title="Call">
             <ContainerIconSpan>
               <BsTelephone />
             </ContainerIconSpan>
@@ -108,7 +107,7 @@ const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
 ContactItem.propTypes = {
   contact: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    phone: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
   }).isRequired,
   selectedContactId: PropTypes.string,
   toggleActions: PropTypes.func,

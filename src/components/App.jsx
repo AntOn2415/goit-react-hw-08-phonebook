@@ -30,7 +30,7 @@ const App = () => {
             path="/register"
             element={
               <RestrictedRoute
-                component={<RegisterPage />}
+                component={<RegisterPage/>}
                 redirectTo="/contacts"
               />
             }
@@ -38,18 +38,10 @@ const App = () => {
           <Route
             path="/login"
             element={
-              <RestrictedRoute
-                component={<LoginPage />}
-                redirectTo="/contacts"
-              />
+              <RestrictedRoute component={<LoginPage/>} redirectTo="/contacts" />
             }
           />
-          <Route
-            path="/contacts"
-            element={
-              <PrivateRoute component={<ContactsPage />} redirectTo="/login" />
-            }
-          />
+          <Route path="/contacts" element={<PrivateRoute component={<ContactsPage />} redirectTo="/login"/>} />
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
