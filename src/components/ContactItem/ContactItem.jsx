@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BsPencil, BsTelephone, BsDashCircle } from 'react-icons/bs';
 import TextTruncate from 'react-text-truncate';
@@ -21,21 +21,28 @@ import {
   ContactBtn,
 } from './ContactItem.styled';
 import { Loader } from '../Loader/Loader';
+import {getRandomHexColor} from '../../helpers/getRandomHexColor'
 
 const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
   const uniqueFirstLetters = useSelector(uniqueFirstLettersContactsSelector);
 
   const dispatch = useDispatch();
   const [isDeleting, setIsDeleting] = useState(false);
+  const [contactColors, setContactColors] = useState({});
 
   const { id, name, phone } = contact;
   const isActionsContainerOpen = selectedContactId === contact.id;
 
-  function getRandomHexColor() {
-    return `#${Math.floor(Math.random() * 16777215)
-      .toString(16)
-      .padStart(6, 0)}`;
-  }
+  useEffect(() => {
+    // Generate and store a random color for the contact's ID when the component mounts.
+    if (!contactColors[contact.id]) {
+      const newColor = getRandomHexColor();
+      setContactColors((prevColors) => ({
+        ...prevColors,
+        [contact.id]: newColor,
+      }));
+    }
+  }, [contact.id, contactColors]);
 
   const onDeleteContact = contactId => {
     setIsDeleting(true);
@@ -55,7 +62,7 @@ const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
       </div>
       <ContactContainerDiv>
         <ContactCardDiv>
-          <FirstLetterNameDiv style={{ backgroundColor: getRandomHexColor() }}>
+          <FirstLetterNameDiv style={{ backgroundColor: contactColors[contact.id] }}>
             {name.charAt(0)}
           </FirstLetterNameDiv>
           <ContactContentP onClick={() => toggleActions(id)}>

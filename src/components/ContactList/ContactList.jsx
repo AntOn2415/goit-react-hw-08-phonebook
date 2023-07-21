@@ -11,6 +11,7 @@ import {
   memoizedFilteredContactsSelector,
 } from 'redux/selectors';
 import {
+  ContactsSection,
   LoaderContainer,
   LoaderRotatingLinesContainer,
   ContactUl,
@@ -49,9 +50,6 @@ const ContactList = () => {
     setSelectedContactId((prevId) => (prevId === contactId ? null : contactId));
   };
 
-  
-  console.log(toggleActions);
-
   if (isFetchingContacts) {
     return (
       <LoaderRotatingLinesContainer>
@@ -71,7 +69,7 @@ const ContactList = () => {
   }
 
   return (
-    <>
+    <ContactsSection>
       <LoaderContainer>
         {isLoading && showEmptyMessage && <LoaderThreeDots />}
       </LoaderContainer>
@@ -87,7 +85,7 @@ const ContactList = () => {
           ))}
         </ContactUl>
       )}
-    </>
+    </ContactsSection>
   );
 };
 

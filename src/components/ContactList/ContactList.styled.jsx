@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
+export const ContactsSection = styled.section`
+  padding: 30px 0;
+`
 export const ContactUl = styled.ul`
   padding: 0;
   margin: 0;
@@ -7,7 +10,6 @@ export const ContactUl = styled.ul`
   flex-direction: column;
   gap: 4px;
 `;
-
 
 export const LoaderContainer = styled.div`
 display: flex;

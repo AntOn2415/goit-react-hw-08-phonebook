@@ -45,7 +45,8 @@ function LoginView() {
 
 
   return (
-    <FormContainer>
+    <section>
+      <FormContainer>
       <Form onSubmit={handleSubmit}>
         <LabelForm>
           <IconWrapper>
@@ -81,10 +82,12 @@ function LoginView() {
         </LabelForm>
 
         <BtnForm type="submit" isLoading={isLoading} disabled={isLoading}>
-          Register
+        Login
         </BtnForm>
       </Form>
     </FormContainer>
+    </section>
+    
   );
 }
 
