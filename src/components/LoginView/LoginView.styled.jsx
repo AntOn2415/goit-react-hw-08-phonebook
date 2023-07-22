@@ -17,8 +17,7 @@ export const LabelForm = styled.label`
   font-weight: 700;
   font-size: 12px;
   color: #333;
-  transition: color 300ms ease;
-  transition: font-size 300ms ease;
+  transition: font-size 300ms, color 300ms ease;
 
   :focus-within {
     color: #000;
@@ -80,10 +79,11 @@ export const BtnForm = styled.button`
   border-radius: 10px;
   cursor: ${props => (props.isLoading ? 'not-allowed' : 'pointer')};
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-  transition: background-color 300ms ease;
+  transition: box-shadow 300ms, background-color 300ms ease;
 
   :hover,
   :focus {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     background-color: ${props => (props.isLoading ? '#27ae60' : '#2ecc71')};
   }
 `;

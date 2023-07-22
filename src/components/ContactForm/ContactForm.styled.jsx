@@ -32,6 +32,8 @@ export const IconWrapper = styled.div`
   left: 10px;
   transition: color 300ms ease;
   color: #777;
+
+
 `;
 
 export const LabelSpan = styled.span`
@@ -80,10 +82,12 @@ export const BtnForm = styled.button`
   border-radius: 10px;
   cursor: ${props => (props.isLoading ? 'not-allowed' : 'pointer')};
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-  transition: background-color 300ms ease;
+  transition: box-shadow 300ms, background-color 300ms ease;
+  
 
   :hover,
   :focus {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     background-color: ${props => (props.isLoading ? '#27ae60' : '#2ecc71')};
   }
 `;

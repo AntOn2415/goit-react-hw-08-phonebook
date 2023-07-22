@@ -38,6 +38,13 @@ export const ContactContainerDiv = styled.div`
   border: 1px solid #27ae60;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+
+  :hover{
+    :hover{
+      border: 1px solid #2ecc71;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  }
 `;
 
 export const FirstLetterNameDiv = styled.div`
@@ -50,7 +57,6 @@ export const FirstLetterNameDiv = styled.div`
   color: #fff;
   border-radius: 50%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-  transition: background-color 300ms, color 250ms ease;
 `;
 
 export const ContactCardDiv = styled.div`
@@ -96,6 +102,7 @@ export const ContainerIconSpan = styled.span`
 
   :hover,
   :focus {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     background-color: #2ecc71;
   }
 `;
@@ -130,10 +137,11 @@ export const EditContactDiv = styled.div`
   border-radius: 20px;
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-  transition: background-color 300ms, color 250ms ease;
+  transition: box-shadow 300ms, background-color 300ms, color 250ms ease;
 
   :hover,
   :focus {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     background-color: #fff;
     color: #27ae60;
   }
@@ -155,11 +163,12 @@ export const ContactBtn = styled.button`
   border-radius: 20px;
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-  transition: background-color 300ms ease;
+  transition: box-shadow 300ms, background-color 300ms, color 250ms ease;
 
   :hover,
   :focus,
   :active {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     background-color: #fff;
     color: #f4442e;
   }
