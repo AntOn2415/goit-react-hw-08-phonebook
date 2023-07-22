@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BsPencil, BsTelephone, BsDashCircle } from 'react-icons/bs';
-import TextTruncate from 'react-text-truncate';
 import { deleteContact } from 'redux/operations/contactsOperations';
 import { uniqueFirstLettersContactsSelector } from 'redux/selectors';
 import {
@@ -31,6 +30,7 @@ const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
   const [contactColors, setContactColors] = useState({});
 
   const { id, name, number } = contact;
+  const trimmedName = contact.name.length > 24 ? `${contact.name.slice(0, 20)}...` : contact.name;
   const isActionsContainerOpen = selectedContactId === contact.id;
 
   useEffect(() => {
@@ -66,12 +66,7 @@ const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
           </FirstLetterNameDiv>
           <ContactContentP onClick={() => toggleActions(id)}>
             <NameSpan>
-              <TextTruncate
-                line={1}
-                element="span"
-                truncateText="..."
-                text={name}
-              />
+              {trimmedName}
             </NameSpan>
             <PhoneSpan>{number}</PhoneSpan>
           </ContactContentP>

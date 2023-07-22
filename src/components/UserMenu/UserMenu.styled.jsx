@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const UserMenuContainerDiv = styled.div`
     display: flex;
     flex-direction: column;
-  align-items: center;
+  align-items: end;
   justify-content: center;
   gap: 4px;
 `
@@ -22,7 +22,7 @@ export const BtnLogout = styled.button`
   justify-content: center;
   padding: 2px 4px;
   gap: 4px;
-  width: 60px;
+  width: 80px;
   height: 22px;
   font-size: 14px;
   background-color: #27ae60;

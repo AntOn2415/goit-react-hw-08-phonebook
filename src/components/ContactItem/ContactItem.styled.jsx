@@ -75,6 +75,7 @@ export const ContactContentP = styled.p`
 `;
 
 export const NameSpan = styled.span`
+white-space: nowrap;
   font-size: 16px;
 `;
 export const PhoneSpan = styled.span`
