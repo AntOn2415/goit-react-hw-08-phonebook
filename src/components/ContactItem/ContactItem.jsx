@@ -18,6 +18,7 @@ import {
   ContactActionsContainer,
   EditContactBtn,
   ContactBtn,
+  LetterContainerDiv,
   ModalContent 
 } from './ContactItem.styled';
 import { Loader } from '../Loader/Loader';
@@ -76,13 +77,6 @@ const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
 
   return (
     <ContactLi>
-      <div style={{ width: '15px', height: '20px' }}>
-        {uniqueFirstLetters.includes(id) && (
-          <FirstLetterContactsGroupDiv>
-            {name.charAt(0)}
-          </FirstLetterContactsGroupDiv>
-        )}
-      </div>
       <ContactContainerDiv>
         <ContactCardDiv>
           <FirstLetterNameDiv
@@ -119,6 +113,13 @@ const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
           </ContactActionsContainer>
         )}
       </ContactContainerDiv>
+      <LetterContainerDiv>
+        {uniqueFirstLetters.includes(id) && (
+          <FirstLetterContactsGroupDiv>
+            {name.charAt(0)}
+          </FirstLetterContactsGroupDiv>
+        )}
+      </LetterContainerDiv>
       {showModal && (
         <Modal onClose={handleCloseModal}>
           <ModalContent onClick={handleContentClick}>

@@ -36,7 +36,7 @@ export const ContactContainerDiv = styled.div`
   width: 100%;
   min-width: 210px;
   border: 1px solid #27ae60;
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 
   :hover{
@@ -114,7 +114,7 @@ export const ContactActionsContainer = styled.div`
   justify-content: center;
   border-top: 1px solid #27ae60;
   background-color: #e7e7e7;
-  border-radius: 8px;
+  border-radius: 10px;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
   gap: 60px;
@@ -180,9 +180,17 @@ export const ContactBtn = styled.button`
   }
 `;
 
+export const LetterContainerDiv = styled.div`
+margin-left: 8px;
+  width: 15px;
+  height: 20px;
+`
+
 export const ModalContent = styled.div`
   padding: 60px 20px;
-  width: 350px;
-  height: 450px;
+  width: 250px;
+  height: 340px;
   background-color: #f2f2f2;
+  /* border: 1px solid #fff; */
+  border-radius: 18px;
 `

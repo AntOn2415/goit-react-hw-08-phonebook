@@ -44,7 +44,8 @@ function ContactForm() {
   };
 
   return (
-    <FormContainer>
+    <section>
+       <FormContainer>
       <Form onSubmit={handleAddContact}>
         <LabelForm>
           <IconWrapper>
@@ -84,6 +85,8 @@ function ContactForm() {
         </BtnForm>
       </Form>
     </FormContainer>
+    </section>
+   
   );
 }
 

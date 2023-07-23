@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 
 export const FormContainer = styled.div`
-  margin-bottom: 30px;
+ padding: 30px 15px 0;
 `;
 
 export const Form = styled.form`
   display: flex;
   gap: 10px;
   flex-direction: column;
+  margin-right: 20px;
 `;
 
 export const LabelForm = styled.label`
@@ -43,8 +44,9 @@ export const LabelSpan = styled.span`
 
 export const InputForm = styled.input`
   min-width: 180px;
-  padding: 8px;
+  padding: 10px;
   padding-left: 26px;
+  font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 10px;
   color: #333;

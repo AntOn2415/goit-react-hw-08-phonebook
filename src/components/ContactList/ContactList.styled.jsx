@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-export const ContactsSection = styled.section`
-  padding: 0;
+export const ContactsContainer = styled.div`
+  padding: 0 15px;
 `
 export const ContactUl = styled.ul`
   padding: 0;

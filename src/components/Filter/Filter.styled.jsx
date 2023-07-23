@@ -1,10 +1,16 @@
 import styled from 'styled-components';
 
-export const FilterContainer = styled.div`
+export const FilterSection = styled.div`
+padding: 30px 0 0;
   position: sticky;
-  top: 0;
-  z-index: 1;
-  background-color: #f2f2f2;
+  top: 0px;
+  z-index: 2;
+  padding-top: 30px;
+  background: linear-gradient(to bottom, rgb(242, 242, 242), rgba(242, 242, 242, 0.85));
+  `;
+
+export const FilterContainer = styled.div`
+  padding: 0 15px;
 `;
 
 export const FilterName = styled.label`
@@ -38,8 +44,10 @@ export const LabelP = styled.p`
 
 export const FilterInput = styled.input`
   min-width: 180px;
-  padding: 8px;
+  padding: 10px;
   padding-left: 26px;
+  margin-right: 20px;
+  font-size: 16px;
   border: 1px solid #ccc;
   border-color: 2ecc71;
   border-radius: 10px;

@@ -1,27 +1,34 @@
-import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { createPortal } from 'react-dom';
-import { ModalOverlay, ModalContent } from './Modal.styled';
+import {closeModal} from '../../redux/slices/modalSlice';
+import { ModalOverlay, ModalDiv } from './Modal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 
 function Modal({ onClose, children }) {
+
+  const showModal = useSelector((state) => state.modal.showModal);
+  const dispatch = useDispatch();
+  
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') {
-        onClose();
+        dispatch(closeModal());
       }
     };
-
     window.addEventListener('keydown', handleKeyDown);
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [onClose]);
+  }, [dispatch]); 
 
+  console.log(showModal);
+  
   return createPortal(
     <ModalOverlay onClick={onClose}>
-      <ModalContent>{children}</ModalContent>
+      <ModalDiv showModal={showModal}>{children}</ModalDiv>
     </ModalOverlay>,
     modalRoot
   );

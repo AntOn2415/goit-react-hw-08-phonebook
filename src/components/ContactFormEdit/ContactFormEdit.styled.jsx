@@ -45,6 +45,7 @@ export const InputForm = styled.input`
   min-width: 180px;
   padding: 8px;
   padding-left: 26px;
+  
   border: 1px solid #ccc;
   border-radius: 10px;
   color: #333;

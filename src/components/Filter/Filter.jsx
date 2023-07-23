@@ -4,6 +4,7 @@ import { DebounceInput } from 'react-debounce-input';
 import { BsSearch } from 'react-icons/bs';
 import { setFilter } from 'redux/slices/filterSlice';
 import {
+  FilterSection,
   FilterContainer,
   FilterName,
   LabelP,
@@ -31,7 +32,8 @@ const Filter = () => {
   };
 
   return (
-    <FilterContainer>
+    <FilterSection>
+      <FilterContainer>
       <FilterName>
       <IconWrapper isEmptyFilter={isEmptyFilter}>
         <BsSearch />
@@ -47,6 +49,8 @@ const Filter = () => {
       />
     </FilterName>
     </FilterContainer>
+    </FilterSection>
+    
     
   );
 };

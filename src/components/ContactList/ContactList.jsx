@@ -11,7 +11,7 @@ import {
   memoizedFilteredContactsSelector,
 } from 'redux/selectors';
 import {
-  ContactsSection,
+  ContactsContainer,
   LoaderContainer,
   LoaderRotatingLinesContainer,
   ContactUl,
@@ -69,7 +69,8 @@ const ContactList = () => {
   }
 
   return (
-    <ContactsSection>
+    <section>
+      <ContactsContainer>
       <LoaderContainer>
         {isLoading && showEmptyMessage && <LoaderThreeDots />}
       </LoaderContainer>
@@ -85,7 +86,9 @@ const ContactList = () => {
           ))}
         </ContactUl>
       )}
-    </ContactsSection>
+    </ContactsContainer>
+    </section>
+    
   );
 };
 
