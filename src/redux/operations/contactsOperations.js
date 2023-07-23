@@ -60,19 +60,46 @@ export const deleteContact = createAsyncThunk(
   }
 );
 
-export const editContact = createAsyncThunk(
-  'contacts/editContact',
-  async (data, thunkAPI) => {
-    try {
-      const res = await axios.patch(`/contacts/${data.id}`, {
-        name: data.name,
-        number: data.number,
-      });
-      return res.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-  );
 
-    
+  export const editContact = createAsyncThunk(
+    'contacts/editContact',
+    async (data, thunkAPI) => {
+      try {
+        const res = await axios.get(`/contacts`);
+  
+        const existingNameContact = res.data.find(
+          contact =>
+            contact.id !== data.id &&
+            contact.name.toLowerCase() === data.name.toLowerCase()
+        );
+  
+        if (existingNameContact) {
+          throw new Error(
+            `Sorry. A contact with the name ${data.name} already exists.`
+          );
+        }
+  
+        const existingPhoneContact = res.data.find(
+          contact => contact.id !== data.id && contact.number === data.number
+        );
+  
+        if (existingPhoneContact) {
+          throw new Error(
+            `Sorry. A contact with the phone number ${data.number} already exists.`
+          );
+        }
+  
+        const patchResponse = await axios.patch(`/contacts/${data.id}`, {
+          name: data.name,
+          number: data.number,
+        });
+  
+        return patchResponse.data;
+      } catch (error) {
+        return thunkAPI.rejectWithValue(error.message);
+      }
+    }
+  );
+  
+  
+      

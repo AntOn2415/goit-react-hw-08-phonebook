@@ -36,3 +36,6 @@ export const uniqueFirstLettersContactsSelector = createSelector(
     return Object.values(firstLetters);
   }
 );
+
+export const modalContactSelector = (contactId) => (state) =>
+  state.modal.contactModals[contactId] || false;

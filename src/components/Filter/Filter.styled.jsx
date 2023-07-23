@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+export const FilterContainer = styled.div`
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #f2f2f2;
+`;
+
 export const FilterName = styled.label`
   position: relative;
   display: flex;

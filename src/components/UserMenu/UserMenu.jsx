@@ -21,7 +21,6 @@ export const UserMenu = () => {
   return (
     <UserMenuContainerDiv>
       <WelcomeTextP>Welcome, <NameSpan>{firstName}</NameSpan></WelcomeTextP>
-     
       <BtnLogout type="button" onClick={handleLogOut}>
       {isLoggedOut ? <BsDoorOpen /> : <BsDoorClosed />}
       Logout

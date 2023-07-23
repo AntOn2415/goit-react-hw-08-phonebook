@@ -122,14 +122,14 @@ export const ContactActionsContainer = styled.div`
   animation: ${({ open }) => (open ? fadeIn : fadeOut)} 300ms ease;
 `;
 
-export const EditContactDiv = styled.div`
+export const EditContactBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2px 4px;
   gap: 4px;
-  width: 60px;
-  height: 22px;
+  width: 68px;
+  height: 26px;
   font-size: 14px;
   background-color: #27ae60;
   color: #fff;
@@ -179,3 +179,10 @@ export const ContactBtn = styled.button`
     color: #fff;
   }
 `;
+
+export const ModalContent = styled.div`
+  padding: 60px 20px;
+  width: 350px;
+  height: 450px;
+  background-color: #f2f2f2;
+`

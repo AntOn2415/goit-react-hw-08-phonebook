@@ -7,7 +7,7 @@ export const ContainerDiv = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: 420px;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #f3f3f3;
 
 `;

@@ -6,6 +6,7 @@ export const UserMenuContainerDiv = styled.div`
   align-items: end;
   justify-content: center;
   gap: 4px;
+  cursor: default;
 `
 
 export const WelcomeTextP = styled.p`

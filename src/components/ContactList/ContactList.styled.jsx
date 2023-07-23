@@ -12,8 +12,8 @@ export const ContactUl = styled.ul`
 `;
 
 export const LoaderContainer = styled.div`
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
   padding-top: 10px;
   margin: 0;
   height: 30px;

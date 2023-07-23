@@ -3,6 +3,7 @@ import {
   fetchContacts,
   addContact,
   deleteContact,
+  editContact
 } from '../operations/contactsOperations';
 import {
   handlePending,
@@ -10,6 +11,7 @@ import {
   handleFulfilledOnFetchContacts,
   handleFulfilledOnAddContact,
   handleFulfilledOnDeleteContact,
+  handleFulfilledOnEditContact
 } from './contactsHandlers';
 
 const defaultsStatus = {
@@ -17,7 +19,7 @@ const defaultsStatus = {
   rejected: 'rejected',
 };
 
-const actionFunctions = [fetchContacts, addContact, deleteContact];
+const actionFunctions = [fetchContacts, addContact, deleteContact, editContact];
 
 const getActionFunctionsByStatus = status =>
   actionFunctions.map(el => el[status]);
@@ -26,6 +28,7 @@ const contactInitialState = {
   items: [],
   isLoading: false,
   error: null,
+  errorEdit: null,
 };
 
 export const contactsSlice = createSlice({
@@ -36,6 +39,7 @@ export const contactsSlice = createSlice({
       .addCase(fetchContacts.fulfilled, handleFulfilledOnFetchContacts)
       .addCase(addContact.fulfilled, handleFulfilledOnAddContact)
       .addCase(deleteContact.fulfilled, handleFulfilledOnDeleteContact)
+      .addCase(editContact.fulfilled, handleFulfilledOnEditContact)
       .addMatcher(
         isAnyOf(...getActionFunctionsByStatus(defaultsStatus.pending)),
         handlePending

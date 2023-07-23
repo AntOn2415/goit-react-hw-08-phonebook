@@ -5,6 +5,7 @@ export const handlePending = state => {
 };
 
 export const handleRejected = (state, { payload }) => {
+  state.errorEdit = true;
   state.isLoading = false;
   state.error = payload;
 };
@@ -35,3 +36,15 @@ export const handleFulfilledOnDeleteContact = (state, { payload }) => {
   };
 };
 
+export const handleFulfilledOnEditContact = (state, { payload }) => {
+  const { id, name, number } = payload;
+  const updatedItems = state.items.map((contact) =>
+    contact.id === id ? { ...contact, name, number } : contact
+  );
+  toast.success(`Contact ${name} : ${number} edited successfully`);
+  return {
+    ...state,
+    isLoading: false,
+    items: updatedItems,
+  };
+};
