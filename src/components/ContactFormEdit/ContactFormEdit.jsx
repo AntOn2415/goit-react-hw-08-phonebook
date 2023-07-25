@@ -12,6 +12,7 @@ import {
   InputForm,
   BtnForm,
 } from './ContactFormEdit.styled';
+import { closeModal } from '../../redux/slices/modalSlice';
 
 function ContactFormEdit({contact}) {
   const isLoading = useSelector(isLoadingSelector);
@@ -37,12 +38,17 @@ function ContactFormEdit({contact}) {
 
   const handleEditContact = async (e) => {
     e.preventDefault();
-
+  
     try {
-      await dispatch(editContact({ id: contact.id, name, number }));
-    }finally{
-        setName('');
-        setNumber('');
+      const patchResponse = await dispatch(editContact({ id: contact.id, name, number }));
+  
+      if (patchResponse.meta.requestStatus === 'fulfilled') {
+        dispatch(closeModal(contact.id));
+      }
+      setName('');
+      setNumber('');
+    } catch (error) {
+      console.error('Failed to edit contact:', error);
     }
   };
 

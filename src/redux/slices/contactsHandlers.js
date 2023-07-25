@@ -37,6 +37,8 @@ export const handleFulfilledOnDeleteContact = (state, { payload }) => {
 };
 
 export const handleFulfilledOnEditContact = (state, { payload }) => {
+
+
   const { id, name, number } = payload;
   const updatedItems = state.items.map((contact) =>
     contact.id === id ? { ...contact, name, number } : contact
@@ -46,5 +48,6 @@ export const handleFulfilledOnEditContact = (state, { payload }) => {
     ...state,
     isLoading: false,
     items: updatedItems,
+
   };
 };
