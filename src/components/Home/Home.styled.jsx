@@ -13,7 +13,7 @@ gap: 30px;
 `;
 
 export const HeroH1 = styled.h1`
-margin-right: 6px;
+
   font-size: 36px;
   font-weight: 700;
   text-align: center;

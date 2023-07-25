@@ -38,7 +38,7 @@ const LoaderRotatingLines = () => {
   return (
     <div>
       <RotatingLines
-        strokeColor="#fff"
+        strokeColor="#27ae60"
         strokeWidth="5"
         animationDuration="0.75"
         width="60"

@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const Header = styled.div`
+max-width: 420px;
+margin-right: auto;
+margin-left: auto;
+`;
+
 export const HeaderContainer = styled.div`
 display: flex;
 justify-content: space-between;

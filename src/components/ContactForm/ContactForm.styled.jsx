@@ -77,6 +77,7 @@ export const BtnForm = styled.button`
   margin-top: 5px;
   width: 100%;
   padding: 10px;
+  font-size: 16px;
   background-color: #27ae60;
   color: #fff;
   outline: none;

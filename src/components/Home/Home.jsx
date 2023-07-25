@@ -10,8 +10,8 @@ export const Home = () => {
     <ImgContainerDiv>
   <img src={LogoContactsLight}
                 alt="phonebook."
-                width="300"
-                height="300"
+                width="250"
+                height="250"
               />
     </ImgContainerDiv>
   </HeroContainerDiv>

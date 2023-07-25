@@ -41,8 +41,9 @@ export const LabelSpan = styled.span`
 
 export const InputForm = styled.input`
   min-width: 180px;
-  padding: 8px;
+  padding: 10px;
   padding-left: 26px;
+  font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 10px;
   color: #333;
@@ -73,6 +74,7 @@ export const BtnForm = styled.button`
   margin-top: 5px;
   width: 100%;
   padding: 10px;
+  font-size: 16px;
   background-color: #27ae60;
   color: #fff;
   outline: none;

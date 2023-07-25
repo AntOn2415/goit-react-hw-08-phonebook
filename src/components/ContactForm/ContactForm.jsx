@@ -45,7 +45,7 @@ function ContactForm() {
 
   return (
     <section>
-       <FormContainer>
+      <FormContainer>
       <Form onSubmit={handleAddContact}>
         <LabelForm>
           <IconWrapper>

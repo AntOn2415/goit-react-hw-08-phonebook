@@ -17,8 +17,7 @@ export const LabelForm = styled.label`
   font-weight: 700;
   font-size: 12px;
   color: #333;
-  transition: color 300ms ease;
-  transition: font-size 300ms ease;
+  transition: font-size 300ms, color 300ms ease;
 
   :focus-within {
     color: #000;
@@ -43,9 +42,9 @@ export const LabelSpan = styled.span`
 
 export const InputForm = styled.input`
   min-width: 180px;
-  padding: 8px;
+  padding: 10px;
   padding-left: 26px;
-  
+  font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 10px;
   color: #333;
@@ -76,6 +75,7 @@ export const BtnForm = styled.button`
   margin-top: 5px;
   width: 100%;
   padding: 10px;
+  font-size: 16px;
   background-color: #27ae60;
   color: #fff;
   outline: none;
@@ -92,3 +92,4 @@ export const BtnForm = styled.button`
     background-color: ${props => (props.isLoading ? '#27ae60' : '#2ecc71')};
   }
 `;
+

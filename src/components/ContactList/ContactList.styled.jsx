@@ -30,6 +30,7 @@ export const LoaderRotatingLinesContainer = styled.div`
   justify-content: center;
   align-items: center;
   backdrop-filter: blur(4px);
+  z-index: 999;
 `;
 
 export const EmptyContactsMessage = styled.p`

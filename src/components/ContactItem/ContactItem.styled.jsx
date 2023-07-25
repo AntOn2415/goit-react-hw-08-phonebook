@@ -185,12 +185,3 @@ margin-left: 8px;
   width: 15px;
   height: 20px;
 `
-
-export const ModalContent = styled.div`
-  padding: 60px 20px;
-  width: 250px;
-  height: 340px;
-  background-color: #f2f2f2;
-  /* border: 1px solid #fff; */
-  border-radius: 18px;
-`
