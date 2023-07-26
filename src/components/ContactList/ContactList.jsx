@@ -50,6 +50,14 @@ const ContactList = () => {
     setSelectedContactId((prevId) => (prevId === contactId ? null : contactId));
   };
 
+  useEffect(() => {
+    // Збігається змінний стан `selectedContactId` після закриття `Modal`
+    if (selectedContactId === null) {
+      // Викликаємо `toggleActions`, щоб зняти виділення
+      toggleActions(selectedContactId);
+    }
+  }, [selectedContactId]);
+
   if (isFetchingContacts) {
     return (
       <LoaderRotatingLinesContainer>

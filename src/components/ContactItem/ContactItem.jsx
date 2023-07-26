@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BsPencil, BsTelephone, BsDashCircle } from 'react-icons/bs';
 import { deleteContact } from 'redux/operations/contactsOperations';
-import { uniqueFirstLettersContactsSelector, modalContactSelector } from 'redux/selectors';
+import { uniqueFirstLettersContactsSelector} from 'redux/selectors';
 import {
   ContactLi,
   FirstLetterContactsGroupDiv,
@@ -24,16 +24,16 @@ import { Loader } from '../Loader/Loader';
 import { getRandomHexColor } from '../../helpers/getRandomHexColor';
 import Modal from '../Modal'
 import ContactFormEdit from 'components/ContactFormEdit';
-import {openModal} from 'redux/slices/modalSlice'
+
 
 
 const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
   const uniqueFirstLetters = useSelector(uniqueFirstLettersContactsSelector);
-  const showModal = useSelector(modalContactSelector(contact.id));
 
   const dispatch = useDispatch();
   const [isDeleting, setIsDeleting] = useState(false);
   const [contactColors, setContactColors] = useState({});
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   const { id, name, number } = contact;
   
@@ -41,7 +41,10 @@ const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
     contact.name.length > 24 ? `${contact.name.slice(0, 20)}...` : contact.name;
 
   const isActionsContainerOpen = selectedContactId === contact.id;
- 
+
+  const handleContactContentClick = () => {
+    toggleActions(id);
+  };
 
   useEffect(() => {
     if (!contactColors[contact.id]) {
@@ -61,7 +64,11 @@ const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
   };
 
   const handleEditButtonClick = () => {
-    dispatch(openModal(contact.id));
+    setIsOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsOpenModal(false);
   };
 
   return (
@@ -73,7 +80,7 @@ const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
           >
             {name.charAt(0)}
           </FirstLetterNameDiv>
-          <ContactContentP onClick={() => toggleActions(id)}>
+          <ContactContentP onClick={handleContactContentClick}>
             <NameSpan>{trimmedName}</NameSpan>
             <PhoneSpan>{number}</PhoneSpan>
           </ContactContentP>
@@ -109,10 +116,11 @@ const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
           </FirstLetterContactsGroupDiv>
         )}
       </LetterContainerDiv>
-      {showModal && (
-        <Modal contactId={contact.id}>
+      {isOpenModal && (
+        <Modal contactId={contact.id} onCloseModal={handleCloseModal} isOpenModal={isOpenModal} >
             <ContactFormEdit
             contact={contact}
+            onCloseModal={handleCloseModal}
             
           />
         </Modal>

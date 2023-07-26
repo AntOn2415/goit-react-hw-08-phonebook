@@ -1,28 +1,22 @@
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import {RiCloseCircleLine } from 'react-icons/ri'
-import { useSelector, useDispatch } from 'react-redux';
 import { createPortal } from 'react-dom';
-import {closeModal} from '../../redux/slices/modalSlice';
 import { ModalBackdrop, ModalDiv,  CloseBtn } from './Modal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 
-function Modal({contactId, children }) {
-  const showModal = useSelector((state) => state.modal.contactModals[contactId] || false);
-  const isModalOpen = useSelector((state) => state.modal.isModalOpen || false); 
+function Modal({ children, onCloseModal, isOpenModal }) {
 
-  const dispatch = useDispatch();
-
-  const handleCloseModal = () => {
-    dispatch(closeModal(contactId));
-  }
+  // const handleCloseModal = () => {
+  //   onCloseModal();
+  // }
   
   useEffect(() => {
     const handleKeyDown = e => {
       
       if (e.code === 'Escape') {
-        dispatch(closeModal(contactId));
+        onCloseModal();
         
       }
     };
@@ -30,29 +24,17 @@ function Modal({contactId, children }) {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [contactId, dispatch]); 
+  }, [ onCloseModal]); 
 
   const handleContentClick = (e) => {
     e.stopPropagation();
   };
 
 
-  // const handleAnimationEnd = (id) => {
-  //   if (!showModal) {
-  //     dispatch(closeModal(id));
-  //   }
-  // };
-
-    
-
-  console.log(isModalOpen);
-  console.log(showModal);
-
-
   return createPortal(
-    <ModalBackdrop onClick={handleCloseModal} showModal={isModalOpen}>
-      <ModalDiv showModal={isModalOpen}  onClick={handleContentClick}>
-      <CloseBtn type='button' onClick={handleCloseModal}>
+    <ModalBackdrop onClick={onCloseModal} showModal={isOpenModal}>
+      <ModalDiv showModal={isOpenModal}  onClick={handleContentClick}>
+      <CloseBtn type='button' onClick={onCloseModal}>
         <RiCloseCircleLine/>
       </CloseBtn>{children}</ModalDiv>
     </ModalBackdrop>,
@@ -62,6 +44,8 @@ function Modal({contactId, children }) {
 
 Modal.propTypes = {
   contactId: PropTypes.string.isRequired,
+  onCloseModal: PropTypes.func.isRequired, 
+  isOpenModal: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
 };
 
