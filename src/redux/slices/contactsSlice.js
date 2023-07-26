@@ -34,6 +34,14 @@ const contactInitialState = {
 export const contactsSlice = createSlice({
   name: 'contacts',
   initialState: contactInitialState,
+  reducers: {
+    resetContacts: (state) => {
+      state.items = [];
+      state.isLoading = false;
+      state.error = null;
+      state.errorEdit = null;
+    }
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchContacts.fulfilled, handleFulfilledOnFetchContacts)
@@ -50,7 +58,7 @@ export const contactsSlice = createSlice({
       )  
   },
 });
-
+export const { resetContacts } = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;
 
 

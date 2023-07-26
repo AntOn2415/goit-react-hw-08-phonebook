@@ -39,11 +39,13 @@ export const ContactContainerDiv = styled.div`
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 
-  :hover{
-    :hover{
+  :hover,
+  :focus{
       border: 1px solid #2ecc71;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  }
+    textarea:focus {
+  outline: 2px solid red; /* Customize the focus ring with a blue border */
+}
   }
 `;
 

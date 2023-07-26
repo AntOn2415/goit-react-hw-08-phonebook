@@ -43,6 +43,8 @@ function ContactForm() {
     setNumber('');
   };
 
+  const isButtonDisabled = name.trim() === '' || number.trim() === '';
+
   return (
     <section>
       <FormContainer>
@@ -80,13 +82,12 @@ function ContactForm() {
           />
         </LabelForm>
 
-        <BtnForm type="submit" isLoading={isLoading} disabled={isLoading}>
+        <BtnForm type="submit" isLoading={isLoading} disabled={isLoading || isButtonDisabled}>
           Add contact
         </BtnForm>
       </Form>
     </FormContainer>
     </section>
-   
   );
 }
 

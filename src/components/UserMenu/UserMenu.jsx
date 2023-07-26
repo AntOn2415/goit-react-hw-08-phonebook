@@ -4,6 +4,7 @@ import { logOut } from 'redux/auth/authOperations';
 import { useAuth } from '../../hooks/useAuth';
 import {UserMenuContainerDiv, WelcomeTextP, NameSpan, BtnLogout } from './UserMenu.styled';
 import {BsDoorClosed, BsDoorOpen} from 'react-icons/bs';
+import {resetContacts} from '../../redux/slices/contactsSlice';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
@@ -12,7 +13,9 @@ export const UserMenu = () => {
 
   const handleLogOut = () => {
     setIsLoggedOut(true);
+    dispatch(resetContacts());
     dispatch(logOut());
+    
   };
   const userNameParts = user.name.split(' ');
   const firstName = userNameParts[0];

@@ -89,4 +89,10 @@ export const BtnForm = styled.button`
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     background-color: ${props => (props.isLoading ? '#27ae60' : '#2ecc71')};
   }
+
+  :disabled{
+    background-color: rgba(39, 174, 96, 0.6);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    cursor: not-allowed;
+  }
 `;

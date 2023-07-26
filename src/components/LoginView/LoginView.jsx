@@ -43,6 +43,7 @@ function LoginView() {
     setPassword('');
   };
 
+  const isButtonDisabled = email.trim() === '' || password.trim() === '';
 
   return (
     <section>
@@ -81,7 +82,7 @@ function LoginView() {
           />
         </LabelForm>
 
-        <BtnForm type="submit" isLoading={isLoading} disabled={isLoading}>
+        <BtnForm type="submit" isLoading={isLoading} disabled={isLoading || isButtonDisabled}>
         Login
         </BtnForm>
       </Form>

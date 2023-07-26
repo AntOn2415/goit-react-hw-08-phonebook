@@ -65,6 +65,7 @@ function RegisterForm() {
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d!@#$%^&*]{8,}$/.test(password);
 
   const doPasswordsMatch = password && password === confirmPassword;
+  const isButtonDisabled = name.trim() === '' || email.trim() === '' || password.trim() === '' || !doPasswordsMatch;
 
   return (
     <FormContainer>
@@ -134,7 +135,7 @@ function RegisterForm() {
             title="Please confirm your password"
           />
         </LabelForm>
-        <BtnForm type="submit" isLoading={isLoading} disabled={isLoading}>
+        <BtnForm type="submit" isLoading={isLoading} disabled={isLoading || isButtonDisabled}>
           Register
         </BtnForm>
       </Form>
