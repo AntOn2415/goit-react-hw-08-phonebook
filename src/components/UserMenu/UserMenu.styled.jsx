@@ -7,15 +7,11 @@ export const UserMenuContainerDiv = styled.div`
   justify-content: center;
   gap: 4px;
   cursor: default;
-`
-
-export const WelcomeTextP = styled.p`
-  font-size: 16px;
-`
+`;
 
 export const NameSpan = styled.span`
-  color: #27ae60;
-`
+font-size: 16px;
+`;
 
 export const BtnLogout = styled.button`
   display: flex;

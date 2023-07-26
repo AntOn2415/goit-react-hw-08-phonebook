@@ -31,6 +31,14 @@ const Filter = () => {
     dispatch(setFilter(e.target.value));
   };
 
+  const firstChar = filter.trim().charAt(0);
+
+  let label = 'Find contacts by Name or Number';
+
+  if (firstChar !== '') {
+    label = isNaN(firstChar) ? 'Find contacts by Name' : 'Find contacts by Number';
+  }
+
   return (
     <FilterSection>
       <FilterContainer>
@@ -38,7 +46,7 @@ const Filter = () => {
       <IconWrapper isEmptyFilter={isEmptyFilter}>
         <BsSearch />
       </IconWrapper>
-      <LabelP>Find contacts by Name</LabelP>
+      <LabelP>{label}</LabelP>
       <DebounceInput
         element={FilterInput}
         type="text"

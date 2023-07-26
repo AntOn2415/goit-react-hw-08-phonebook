@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/authOperations';
 import { useAuth } from '../../hooks/useAuth';
-import {UserMenuContainerDiv, WelcomeTextP, NameSpan, BtnLogout } from './UserMenu.styled';
+import {UserMenuContainerDiv, NameSpan, BtnLogout } from './UserMenu.styled';
 import {BsDoorClosed, BsDoorOpen} from 'react-icons/bs';
 import {resetContacts} from '../../redux/slices/contactsSlice';
 
@@ -17,13 +17,12 @@ export const UserMenu = () => {
     dispatch(logOut());
     
   };
-  const userNameParts = user.name.split(' ');
-  const firstName = userNameParts[0];
+  const userEmail = user.email;
 
   
   return (
     <UserMenuContainerDiv>
-      <WelcomeTextP>Welcome, <NameSpan>{firstName}</NameSpan></WelcomeTextP>
+      <NameSpan>{userEmail}</NameSpan>
       <BtnLogout type="button" onClick={handleLogOut}>
       {isLoggedOut ? <BsDoorOpen /> : <BsDoorClosed />}
       Logout

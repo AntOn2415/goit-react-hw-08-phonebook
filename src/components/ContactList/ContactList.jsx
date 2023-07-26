@@ -51,9 +51,7 @@ const ContactList = () => {
   };
 
   useEffect(() => {
-    // Збігається змінний стан `selectedContactId` після закриття `Modal`
     if (selectedContactId === null) {
-      // Викликаємо `toggleActions`, щоб зняти виділення
       toggleActions(selectedContactId);
     }
   }, [selectedContactId]);

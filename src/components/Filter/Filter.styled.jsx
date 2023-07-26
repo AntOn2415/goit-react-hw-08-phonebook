@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+
+
 export const FilterSection = styled.div`
 padding: 30px 0 0;
   position: sticky;
@@ -20,6 +22,7 @@ export const FilterName = styled.label`
   font-weight: 700;
   font-size: 12px;
   color: #333;
+ 
 
   transition: color 300ms ease, font-size 300ms ease;
 
