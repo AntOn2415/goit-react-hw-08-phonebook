@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import React, { lazy, useEffect } from 'react';
 
 import { Layout } from './Layout/Layout';
-import HomePage from 'pages/HomePage';
+// import HomePage from 'pages/HomePage';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/auth/authOperations';
 import { useAuth } from 'hooks/useAuth';
@@ -13,6 +13,7 @@ import NotFoundPage  from '../components/NotFoundPage';
 const RegisterPage = lazy(() => import('pages/RegisterPage'));
 const LoginPage = lazy(() => import('pages/LoginPage'));
 const ContactsPage = lazy(() => import('pages/ContactsPage'));
+const HomePage = lazy(() => import('pages/HomePage'));
 
 const App = () => {
   const dispatch = useDispatch();

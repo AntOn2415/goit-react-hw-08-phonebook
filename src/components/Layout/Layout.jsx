@@ -5,13 +5,14 @@ import { Suspense } from 'react';
 import { toastConfig } from 'helpers';
 import {ContainerDiv} from './Layout.styled'
 import 'react-toastify/dist/ReactToastify.css';
+import { LoaderForLayout } from 'components/Loader/Loader';
 
 export const Layout = () => {
   return (
     <>
       <AppBar />
       <ContainerDiv>
-      <Suspense fallback={null}>
+      <Suspense fallback={<LoaderForLayout/>}>
         <Outlet />
       </Suspense>
       <ToastContainer {...toastConfig} />

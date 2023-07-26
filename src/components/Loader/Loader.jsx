@@ -48,4 +48,25 @@ const LoaderRotatingLines = () => {
   );
 };
 
-export { Loader, LoaderThreeDots, LoaderRotatingLines };
+const LoaderForLayout = () => {
+  return (
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100vh',
+      }}
+    >
+        <RotatingLines
+          strokeColor="#27ae60"
+          strokeWidth="5"
+          animationDuration="0.75"
+          width="60"
+          visible={true}
+        />
+    </div>
+  );
+};
+
+export { Loader, LoaderThreeDots, LoaderRotatingLines, LoaderForLayout };
