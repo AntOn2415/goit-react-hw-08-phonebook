@@ -1,26 +1,7 @@
 import styled, { keyframes } from 'styled-components';
+import { fadeInDown } from 'react-animations';
 
-const fadeOut = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
-
-const fadeIn = keyframes`
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-`;
+const fadeInDownAnimation = keyframes`${fadeInDown}`;
 
 export const ContactLi = styled.li`
   display: flex;
@@ -43,9 +24,6 @@ export const ContactContainerDiv = styled.div`
   :focus{
       border: 1px solid #2ecc71;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    textarea:focus {
-  outline: 2px solid red; /* Customize the focus ring with a blue border */
-}
   }
 `;
 
@@ -121,7 +99,7 @@ export const ContactActionsContainer = styled.div`
   border-top-left-radius: 0;
   gap: 60px;
   padding: 8px 8px;
-  animation: ${({ open }) => (open ? fadeIn : fadeOut)} 300ms ease;
+  animation: 250ms ${fadeInDownAnimation};
 `;
 
 export const EditContactBtn = styled.button`

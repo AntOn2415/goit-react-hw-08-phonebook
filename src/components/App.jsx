@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import React, { lazy, useEffect } from 'react';
 
 import { Layout } from './Layout/Layout';
@@ -8,6 +8,7 @@ import { refreshUser } from 'redux/auth/authOperations';
 import { useAuth } from 'hooks/useAuth';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
+import NotFoundPage  from '../components/NotFoundPage';
 
 const RegisterPage = lazy(() => import('pages/RegisterPage'));
 const LoginPage = lazy(() => import('pages/LoginPage'));
@@ -31,8 +32,7 @@ const App = () => {
             element={
               <RestrictedRoute
                 component={<RegisterPage/>}
-                redirectTo="/contacts"
-              />
+                redirectTo="/contacts"/>
             }
           />
           <Route
@@ -42,7 +42,7 @@ const App = () => {
             }
           />
           <Route path="/contacts" element={<PrivateRoute component={<ContactsPage />} redirectTo="/login"/>} />
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     )

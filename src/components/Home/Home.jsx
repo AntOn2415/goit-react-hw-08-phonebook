@@ -1,5 +1,5 @@
 import {HeroContainerDiv, HeroH1, ImgContainerDiv } from './Home.styled'
-import LogoContactsLight from '../../images/LogoContactsLight.png'
+import logoContactsLight from '../../images/logoContactsLight.png'
 
 export const Home = () => {
   return (
@@ -8,7 +8,7 @@ export const Home = () => {
     PhoneBook
     </HeroH1>
     <ImgContainerDiv>
-  <img src={LogoContactsLight}
+  <img src={logoContactsLight}
                 alt="phonebook."
                 width="250"
                 height="250"

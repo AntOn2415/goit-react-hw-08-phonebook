@@ -8,10 +8,6 @@ const modalRoot = document.querySelector('#modal-root');
 
 function Modal({ children, onCloseModal, isOpenModal }) {
 
-  // const handleCloseModal = () => {
-  //   onCloseModal();
-  // }
-  
   useEffect(() => {
     const handleKeyDown = e => {
       

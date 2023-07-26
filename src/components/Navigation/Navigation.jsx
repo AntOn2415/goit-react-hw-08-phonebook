@@ -2,6 +2,7 @@ import React from 'react';
 import { useAuth } from '../../hooks';
 import { NavUl, NavLi, StyledLink } from './Navigation.styled';
 import LogoIcon from '../LogoIcon'
+
 export const Navigation = () => {
   const { isLoggedIn } = useAuth();
 
