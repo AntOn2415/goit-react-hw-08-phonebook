@@ -7,10 +7,6 @@ export const ContactLi = styled.li`
   display: flex;
 `;
 
-export const FirstLetterContactsGroupDiv = styled.div`
-  font-size: 16px;
-`;
-
 export const ContactContainerDiv = styled.div`
   display: flex;
   flex-direction: column;
@@ -160,8 +156,16 @@ export const ContactBtn = styled.button`
   }
 `;
 
+export const FirstLetterContactsGroupDiv = styled.div`
+  position: sticky;
+  top: 0;
+  padding: 8px 12px;
+  font-size: 16px;
+  background-color: #777;
+`;
+
 export const LetterContainerDiv = styled.div`
-margin-left: 8px;
+  margin-left: 8px;
   width: 15px;
   height: 20px;
 `

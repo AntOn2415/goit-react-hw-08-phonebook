@@ -19,10 +19,20 @@ export const UserMenu = () => {
   };
   const userEmail = user.email;
 
+  let userEmailToShow = userEmail;
+
+  if (userEmail.length > 15) {
+    const atIndex = userEmail.indexOf('@');
+    if (atIndex >= 0 && atIndex <= 15) {
+      userEmailToShow = userEmail.substring(0, atIndex + 1);
+    } else {
+      userEmailToShow = userEmail.substring(0, 15);
+    }
+  }
   
   return (
     <UserMenuContainerDiv>
-      <NameSpan>{userEmail}</NameSpan>
+      <NameSpan>{userEmailToShow}</NameSpan>
       <BtnLogout type="button" onClick={handleLogOut}>
       {isLoggedOut ? <BsDoorOpen /> : <BsDoorClosed />}
       Logout
