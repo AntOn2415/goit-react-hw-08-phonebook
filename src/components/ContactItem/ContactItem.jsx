@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BsPencil, BsTelephone, BsDashCircle } from 'react-icons/bs';
 import { deleteContact } from 'redux/operations/contactsOperations';
-import { uniqueFirstLettersContactsSelector} from 'redux/selectors';
+import { uniqueFirstLettersContactsSelector } from 'redux/selectors';
 import {
   ContactLi,
   FirstLetterContactsGroupDiv,
@@ -18,14 +18,12 @@ import {
   ContactActionsContainer,
   EditContactBtn,
   ContactBtn,
-  LetterContainerDiv, 
+  LetterContainerDiv,
 } from './ContactItem.styled';
 import { Loader } from '../Loader/Loader';
 import { getRandomHexColor } from '../../helpers/getRandomHexColor';
-import Modal from '../Modal'
+import Modal from '../Modal';
 import ContactFormEdit from 'components/ContactFormEdit';
-
-
 
 const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
   const uniqueFirstLetters = useSelector(uniqueFirstLettersContactsSelector);
@@ -36,7 +34,7 @@ const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   const { id, name, number } = contact;
-  
+
   const trimmedName =
     contact.name.length > 24 ? `${contact.name.slice(0, 20)}...` : contact.name;
 
@@ -117,12 +115,12 @@ const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
         )}
       </LetterContainerDiv>
       {isOpenModal && (
-        <Modal contactId={contact.id} onCloseModal={handleCloseModal} isOpenModal={isOpenModal} >
-            <ContactFormEdit
-            contact={contact}
-            onCloseModal={handleCloseModal}
-            
-          />
+        <Modal
+          contactId={contact.id}
+          onCloseModal={handleCloseModal}
+          isOpenModal={isOpenModal}
+        >
+          <ContactFormEdit contact={contact} onCloseModal={handleCloseModal} />
         </Modal>
       )}
     </ContactLi>

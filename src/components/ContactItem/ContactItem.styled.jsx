@@ -17,8 +17,8 @@ export const ContactContainerDiv = styled.div`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 
   :hover,
-  :focus{
-      border: 1px solid #2ecc71;
+  :focus {
+    border: 1px solid #2ecc71;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
 `;
@@ -51,7 +51,7 @@ export const ContactContentP = styled.p`
 `;
 
 export const NameSpan = styled.span`
-white-space: nowrap;
+  white-space: nowrap;
   font-size: 16px;
 `;
 export const PhoneSpan = styled.span`
@@ -159,13 +159,11 @@ export const ContactBtn = styled.button`
 export const FirstLetterContactsGroupDiv = styled.div`
   position: sticky;
   top: 0;
-  padding: 8px 12px;
   font-size: 16px;
-  background-color: #777;
 `;
 
 export const LetterContainerDiv = styled.div`
   margin-left: 8px;
   width: 15px;
   height: 20px;
-`
+`;

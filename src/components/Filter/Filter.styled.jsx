@@ -1,15 +1,17 @@
 import styled from 'styled-components';
 
-
-
 export const FilterSection = styled.div`
-padding: 30px 0 0;
+  padding: 30px 0 0;
   position: sticky;
   top: 0px;
   z-index: 2;
   padding-top: 30px;
-  background: linear-gradient(to bottom, rgb(242, 242, 242), rgba(242, 242, 242, 0.85));
-  `;
+  background: linear-gradient(
+    to bottom,
+    rgb(242, 242, 242),
+    rgba(242, 242, 242, 0.85)
+  );
+`;
 
 export const FilterContainer = styled.div`
   padding: 0 15px;
@@ -22,7 +24,6 @@ export const FilterName = styled.label`
   font-weight: 700;
   font-size: 12px;
   color: #333;
- 
 
   transition: color 300ms ease, font-size 300ms ease;
 

@@ -1,4 +1,4 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
@@ -11,33 +11,38 @@ const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = '';
 };
 
-export const register = createAsyncThunk('auth/register', async (credentials, thunkAPI) =>{
-  try {
-    const res = await axios.post('/users/signup', credentials);
-    setAuthHeader(res.data.token);
+export const register = createAsyncThunk(
+  'auth/register',
+  async (credentials, thunkAPI) => {
+    try {
+      const res = await axios.post('/users/signup', credentials);
+      setAuthHeader(res.data.token);
 
-    return res.data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
-});
+);
 
-export const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI) =>{
-  try {
-    const res = await axios.post('/users/login', credentials);
-    setAuthHeader(res.data.token);
+export const logIn = createAsyncThunk(
+  'auth/login',
+  async (credentials, thunkAPI) => {
+    try {
+      const res = await axios.post('/users/login', credentials);
+      setAuthHeader(res.data.token);
 
-    return res.data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
-});
+);
 
-export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) =>{
+export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await axios.post('/users/logout');
     clearAuthHeader();
-
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
   }
@@ -68,7 +73,7 @@ const authOperations = {
   register,
   logIn,
   logOut,
-  refreshUser
+  refreshUser,
 };
 
 export default authOperations;

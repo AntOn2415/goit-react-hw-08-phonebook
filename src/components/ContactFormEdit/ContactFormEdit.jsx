@@ -21,11 +21,11 @@ function ContactFormEdit({ contact, onCloseModal }) {
   const [number, setNumber] = useState(contact.number);
   const [isModified, setIsModified] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const { name, value } = e.currentTarget;
     switch (name) {
       case 'name':
-        setName(value.replace(/(^|\s)\S/g, (match) => match.toUpperCase()));
+        setName(value.replace(/(^|\s)\S/g, match => match.toUpperCase()));
         break;
 
       case 'number':
@@ -37,11 +37,10 @@ function ContactFormEdit({ contact, onCloseModal }) {
     }
   };
 
-  const handleEditContact = async (e) => {
+  const handleEditContact = async e => {
     e.preventDefault();
 
     try {
-      
       const editedName = name.trim() === '' ? contact.name : name;
       const editedNumber = number.trim() === '' ? contact.number : number;
 
@@ -103,7 +102,11 @@ function ContactFormEdit({ contact, onCloseModal }) {
           />
         </LabelForm>
 
-        <BtnForm type="submit" isLoading={isLoading} disabled={isLoading || !isModified || isButtonDisabled}>
+        <BtnForm
+          type="submit"
+          isLoading={isLoading}
+          disabled={isLoading || !isModified || isButtonDisabled}
+        >
           Edit contact
         </BtnForm>
       </Form>

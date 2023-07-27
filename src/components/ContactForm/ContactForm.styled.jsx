@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const FormContainer = styled.div`
- padding: 30px 15px 0;
+  padding: 30px 15px 0;
 `;
 
 export const Form = styled.form`
@@ -33,8 +33,6 @@ export const IconWrapper = styled.div`
   left: 10px;
   transition: color 300ms ease;
   color: #777;
-
-
 `;
 
 export const LabelSpan = styled.span`
@@ -86,7 +84,6 @@ export const BtnForm = styled.button`
   cursor: ${props => (props.isLoading ? 'not-allowed' : 'pointer')};
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
   transition: box-shadow 300ms, background-color 300ms ease;
-  
 
   :hover,
   :focus {
@@ -94,7 +91,7 @@ export const BtnForm = styled.button`
     background-color: ${props => (props.isLoading ? '#27ae60' : '#2ecc71')};
   }
 
-  :disabled{
+  :disabled {
     background-color: rgba(39, 174, 96, 0.6);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
     cursor: not-allowed;

@@ -9,4 +9,4 @@ export const toastConfig = {
   draggable: true,
   pauseOnHover: true,
   theme: 'light',
-}
+};

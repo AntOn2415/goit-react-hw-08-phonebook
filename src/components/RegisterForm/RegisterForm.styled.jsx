@@ -20,7 +20,6 @@ export const LabelForm = styled.label`
   color: #333;
   transition: font-size 300ms, color 300ms ease;
 
-
   :focus-within {
     color: #000;
     font-size: 14px;
@@ -91,7 +90,7 @@ export const BtnForm = styled.button`
     background-color: ${props => (props.isLoading ? '#27ae60' : '#2ecc71')};
   }
 
-  :disabled{
+  :disabled {
     background-color: rgba(39, 174, 96, 0.6);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
     cursor: not-allowed;

@@ -1,10 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import {
-  fadeIn,
-  fadeOut,
-  zoomIn,
-  zoomOut,
-} from 'react-animations';
+import { fadeIn, fadeOut, zoomIn, zoomOut } from 'react-animations';
 
 const fadeInAnimation = keyframes`${fadeIn}`;
 const fadeOutAnimation = keyframes`${fadeOut}`;
@@ -27,7 +22,7 @@ export const ModalBackdrop = styled.div`
   overflow-y: scroll;
   overflow: hidden;
 
-animation: 500ms ${fadeInAnimation}; // при відкритті */
+  animation: 500ms ${fadeInAnimation}; // при відкритті */
   /* animation: 500ms ${fadeOutAnimation}; // при закритті  */
 `;
 
@@ -40,11 +35,9 @@ export const ModalDiv = styled.div`
   border-radius: 18px;
   border: 1px solid #27ae60;
 
-    
   animation: 300ms ${zoomInAnimation};
-  /* animation: 300ms ${zoomOutAnimation};// при закритті  */ 
-  `;
-
+  /* animation: 300ms ${zoomOutAnimation};// при закритті  */
+`;
 
 export const CloseBtn = styled.button`
   position: absolute;

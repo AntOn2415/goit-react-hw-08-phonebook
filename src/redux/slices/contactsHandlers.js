@@ -37,10 +37,8 @@ export const handleFulfilledOnDeleteContact = (state, { payload }) => {
 };
 
 export const handleFulfilledOnEditContact = (state, { payload }) => {
-
-
   const { id, name, number } = payload;
-  const updatedItems = state.items.map((contact) =>
+  const updatedItems = state.items.map(contact =>
     contact.id === id ? { ...contact, name, number } : contact
   );
   toast.success(`Contact ${name} : ${number} edited successfully`);
@@ -48,6 +46,5 @@ export const handleFulfilledOnEditContact = (state, { payload }) => {
     ...state,
     isLoading: false,
     items: updatedItems,
-
   };
 };

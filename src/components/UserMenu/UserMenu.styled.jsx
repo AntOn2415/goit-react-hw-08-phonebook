@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const UserMenuContainerDiv = styled.div`
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
   align-items: end;
   justify-content: center;
   gap: 4px;
@@ -10,7 +10,7 @@ export const UserMenuContainerDiv = styled.div`
 `;
 
 export const NameSpan = styled.span`
-font-size: 16px;
+  font-size: 16px;
 `;
 
 export const BtnLogout = styled.button`

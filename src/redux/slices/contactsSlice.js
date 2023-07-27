@@ -3,7 +3,7 @@ import {
   fetchContacts,
   addContact,
   deleteContact,
-  editContact
+  editContact,
 } from '../operations/contactsOperations';
 import {
   handlePending,
@@ -11,7 +11,7 @@ import {
   handleFulfilledOnFetchContacts,
   handleFulfilledOnAddContact,
   handleFulfilledOnDeleteContact,
-  handleFulfilledOnEditContact
+  handleFulfilledOnEditContact,
 } from './contactsHandlers';
 
 const defaultsStatus = {
@@ -35,12 +35,12 @@ export const contactsSlice = createSlice({
   name: 'contacts',
   initialState: contactInitialState,
   reducers: {
-    resetContacts: (state) => {
+    resetContacts: state => {
       state.items = [];
       state.isLoading = false;
       state.error = null;
       state.errorEdit = null;
-    }
+    },
   },
   extraReducers: builder => {
     builder
@@ -55,10 +55,8 @@ export const contactsSlice = createSlice({
       .addMatcher(
         isAnyOf(...getActionFunctionsByStatus(defaultsStatus.rejected)),
         handleRejected
-      )  
+      );
   },
 });
 export const { resetContacts } = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;
-
-

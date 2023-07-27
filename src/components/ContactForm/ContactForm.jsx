@@ -48,45 +48,49 @@ function ContactForm() {
   return (
     <section>
       <FormContainer>
-      <Form onSubmit={handleAddContact}>
-        <LabelForm>
-          <IconWrapper>
-            <BsPersonPlus />
-          </IconWrapper>
-          <LabelSpan>Name</LabelSpan>
-          <InputForm
-            type="text"
-            value={name}
-            name="name"
-            pattern="^[a-zA-Zа-яА-ЯґҐєЄіІїЇ]+(([' \-][a-zA-Zа-яА-ЯґҐєЄіІїЇ ])?[a-zA-Zа-яА-ЯґҐєЄіІїЇ]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            required
-            placeholder="Enter name"
-            onChange={handleChange}
-          />
-        </LabelForm>
-        <LabelForm>
-          <IconWrapper>
-            <BsTelephonePlus />
-          </IconWrapper>
-          <LabelSpan>Number</LabelSpan>
-          <InputForm
-            type="tel"
-            value={number}
-            name="number"
-            pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
-            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            required
-            placeholder="Enter phone number"
-            onChange={handleChange}
-          />
-        </LabelForm>
+        <Form onSubmit={handleAddContact}>
+          <LabelForm>
+            <IconWrapper>
+              <BsPersonPlus />
+            </IconWrapper>
+            <LabelSpan>Name</LabelSpan>
+            <InputForm
+              type="text"
+              value={name}
+              name="name"
+              pattern="^[a-zA-Zа-яА-ЯґҐєЄіІїЇ]+(([' \-][a-zA-Zа-яА-ЯґҐєЄіІїЇ ])?[a-zA-Zа-яА-ЯґҐєЄіІїЇ]*)*$"
+              title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+              required
+              placeholder="Enter name"
+              onChange={handleChange}
+            />
+          </LabelForm>
+          <LabelForm>
+            <IconWrapper>
+              <BsTelephonePlus />
+            </IconWrapper>
+            <LabelSpan>Number</LabelSpan>
+            <InputForm
+              type="tel"
+              value={number}
+              name="number"
+              pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
+              title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+              required
+              placeholder="Enter phone number"
+              onChange={handleChange}
+            />
+          </LabelForm>
 
-        <BtnForm type="submit" isLoading={isLoading} disabled={isLoading || isButtonDisabled}>
-          Add contact
-        </BtnForm>
-      </Form>
-    </FormContainer>
+          <BtnForm
+            type="submit"
+            isLoading={isLoading}
+            disabled={isLoading || isButtonDisabled}
+          >
+            Add contact
+          </BtnForm>
+        </Form>
+      </FormContainer>
     </section>
   );
 }

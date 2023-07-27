@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const ContainerDiv = styled.div`
- display: flex;
- justify-content: center;
- align-items: center;
- gap: 15px;
- margin: auto;
- flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: auto;
+  flex-direction: column;
   padding: 30px 15px;
   border-color: #777;
 `;

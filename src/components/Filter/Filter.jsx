@@ -18,6 +18,7 @@ import {
 
 const Filter = () => {
   const filter = useSelector(selectFilter);
+
   const filteredContacts = useSelector(memoizedFilteredContactsSelector);
 
   const isEmptyFilter = filteredContacts.length === 0;
@@ -36,30 +37,30 @@ const Filter = () => {
   let label = 'Find contacts by Name or Number';
 
   if (firstChar !== '') {
-    label = isNaN(firstChar) ? 'Find contacts by Name' : 'Find contacts by Number';
+    label = isNaN(firstChar)
+      ? 'Find contacts by Name'
+      : 'Find contacts by Number';
   }
 
   return (
     <FilterSection>
       <FilterContainer>
-      <FilterName>
-      <IconWrapper isEmptyFilter={isEmptyFilter}>
-        <BsSearch />
-      </IconWrapper>
-      <LabelP>{label}</LabelP>
-      <DebounceInput
-        element={FilterInput}
-        type="text"
-        value={filter}
-        debounceTimeout={500}
-        onChange={onChangeFilter}
-        isEmptyFilter={isEmptyFilter}
-      />
-    </FilterName>
-    </FilterContainer>
+        <FilterName>
+          <IconWrapper isEmptyFilter={isEmptyFilter}>
+            <BsSearch />
+          </IconWrapper>
+          <LabelP>{label}</LabelP>
+          <DebounceInput
+            element={FilterInput}
+            type="text"
+            value={filter}
+            debounceTimeout={500}
+            onChange={onChangeFilter}
+            isEmptyFilter={isEmptyFilter}
+          />
+        </FilterName>
+      </FilterContainer>
     </FilterSection>
-    
-    
   );
 };
 

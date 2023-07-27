@@ -15,19 +15,20 @@ export const memoizedFilteredContactsSelector = createSelector(
   [memoizedContactsSelector, selectFilter],
   (contacts, filter) => {
     const normalizedFilter = filter.toLowerCase();
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizedFilter) ||
-      contact.number.includes(filter)
+    return contacts.filter(
+      contact =>
+        contact.name.toLowerCase().includes(normalizedFilter) ||
+        contact.number.includes(filter)
     );
   }
 );
 
 export const uniqueFirstLettersContactsSelector = createSelector(
   [memoizedFilteredContactsSelector],
-  (filteredContacts) => {
+  filteredContacts => {
     const firstLetters = {};
 
-    filteredContacts.forEach((contact) => {
+    filteredContacts.forEach(contact => {
       const firstLetter = contact.name.charAt(0).toUpperCase();
       if (!firstLetters[firstLetter]) {
         firstLetters[firstLetter] = contact.id;

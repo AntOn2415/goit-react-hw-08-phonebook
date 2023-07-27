@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const ContactsContainer = styled.div`
+  position: relative;
   padding: 0 15px;
-`
+`;
 export const ContactUl = styled.ul`
   padding: 0;
   margin: 0;

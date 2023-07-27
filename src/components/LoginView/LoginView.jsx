@@ -48,47 +48,50 @@ function LoginView() {
   return (
     <section>
       <FormContainer>
-      <Form onSubmit={handleSubmit}>
-        <LabelForm>
-          <IconWrapper>
-            <BsEnvelopeAt />
-          </IconWrapper>
-          <LabelSpan>Email</LabelSpan>
-          <InputForm
-            type="email"
-            value={email}
-            name="email"
-            title="Please enter a valid email address"
-            required
-            placeholder="Enter email"
-            onChange={handleChange}
-          />
-        </LabelForm>
-        <LabelForm>
-          <IconWrapper>
-          <BsLock />
-          </IconWrapper>
-          <LabelSpan>Password</LabelSpan>
-          <InputForm
-            type="password"
-            value={password}
-            name="password"
-            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d!@#$%^&*]{8,}$"
-            title="Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, and one digit."
-            minLength={8}
-            required
-            placeholder="Enter password"
-            onChange={handleChange}
-          />
-        </LabelForm>
+        <Form onSubmit={handleSubmit}>
+          <LabelForm>
+            <IconWrapper>
+              <BsEnvelopeAt />
+            </IconWrapper>
+            <LabelSpan>Email</LabelSpan>
+            <InputForm
+              type="email"
+              value={email}
+              name="email"
+              title="Please enter a valid email address"
+              required
+              placeholder="Enter email"
+              onChange={handleChange}
+            />
+          </LabelForm>
+          <LabelForm>
+            <IconWrapper>
+              <BsLock />
+            </IconWrapper>
+            <LabelSpan>Password</LabelSpan>
+            <InputForm
+              type="password"
+              value={password}
+              name="password"
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d!@#$%^&*]{8,}$"
+              title="Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, and one digit."
+              minLength={8}
+              required
+              placeholder="Enter password"
+              onChange={handleChange}
+            />
+          </LabelForm>
 
-        <BtnForm type="submit" isLoading={isLoading} disabled={isLoading || isButtonDisabled}>
-        Login
-        </BtnForm>
-      </Form>
-    </FormContainer>
+          <BtnForm
+            type="submit"
+            isLoading={isLoading}
+            disabled={isLoading || isButtonDisabled}
+          >
+            Login
+          </BtnForm>
+        </Form>
+      </FormContainer>
     </section>
-    
   );
 }
 

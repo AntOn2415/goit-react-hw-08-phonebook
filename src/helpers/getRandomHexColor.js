@@ -18,7 +18,9 @@ export const getRandomHexColor = () => {
     }
 
     // Combine the RGB channels and convert back to hex format
-    randomColor = `#${((r << 16) | (g << 8) | b).toString(16).padStart(6, '0')}`;
+    randomColor = `#${((r << 16) | (g << 8) | b)
+      .toString(16)
+      .padStart(6, '0')}`;
   } while (!randomColor);
 
   return randomColor;

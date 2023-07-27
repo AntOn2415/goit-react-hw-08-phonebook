@@ -2,7 +2,7 @@ import { ProgressBar, ThreeDots, RotatingLines } from 'react-loader-spinner';
 
 const Loader = () => {
   return (
-    <ProgressBar   
+    <ProgressBar
       ariaLabel="progress-bar-loading"
       wrapperStyle={{
         position: 'absolute',
@@ -26,8 +26,7 @@ const LoaderThreeDots = () => {
       radius="1"
       color="#27ae60"
       ariaLabel="three-dots-loading"
-      wrapperStyle={{
-      }}
+      wrapperStyle={{}}
       wrapperClassName=""
       visible={true}
     />
@@ -58,13 +57,13 @@ const LoaderForLayout = () => {
         height: '100vh',
       }}
     >
-        <RotatingLines
-          strokeColor="#27ae60"
-          strokeWidth="5"
-          animationDuration="0.75"
-          width="60"
-          visible={true}
-        />
+      <RotatingLines
+        strokeColor="#27ae60"
+        strokeWidth="5"
+        animationDuration="0.75"
+        width="60"
+        visible={true}
+      />
     </div>
   );
 };

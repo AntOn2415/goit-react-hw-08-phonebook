@@ -28,7 +28,6 @@ const ContactList = () => {
   const [showEmptyMessage, setShowEmptyMessage] = useState(false);
   const [selectedContactId, setSelectedContactId] = useState(null);
 
-
   const dispatch = useDispatch();
 
   const contactsLength = contacts.length;
@@ -46,8 +45,8 @@ const ContactList = () => {
     error && toast.error(error);
   }, [error]);
 
-  const toggleActions = (contactId) => {
-    setSelectedContactId((prevId) => (prevId === contactId ? null : contactId));
+  const toggleActions = contactId => {
+    setSelectedContactId(prevId => (prevId === contactId ? null : contactId));
   };
 
   useEffect(() => {
@@ -77,24 +76,23 @@ const ContactList = () => {
   return (
     <section>
       <ContactsContainer>
-      <LoaderContainer>
-        {isLoading && showEmptyMessage && <LoaderThreeDots />}
-      </LoaderContainer>
-      {!isEmptyFilter && (
-        <ContactUl>
-          {filteredContacts.map(contact => (
-            <ContactItem
-              key={contact.id}
-              contact={contact}
-              selectedContactId={selectedContactId}
-              toggleActions={toggleActions}
-            />
-          ))}
-        </ContactUl>
-      )}
-    </ContactsContainer>
+        <LoaderContainer>
+          {isLoading && showEmptyMessage && <LoaderThreeDots />}
+        </LoaderContainer>
+        {!isEmptyFilter && (
+          <ContactUl>
+            {filteredContacts.map(contact => (
+              <ContactItem
+                key={contact.id}
+                contact={contact}
+                selectedContactId={selectedContactId}
+                toggleActions={toggleActions}
+              />
+            ))}
+          </ContactUl>
+        )}
+      </ContactsContainer>
     </section>
-    
   );
 };
 
