@@ -9,7 +9,7 @@ export const ContainerDiv = styled.div`
   min-height: 100vh;
   background-color: #f3f3f3;
 
-   @media screen and (min-width: 665px) {
+  @media screen and (min-width: 665px) {
     max-width: 665px; 
   }
 

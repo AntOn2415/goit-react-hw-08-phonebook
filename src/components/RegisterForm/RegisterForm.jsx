@@ -114,8 +114,8 @@ function RegisterForm() {
             type="password"
             value={password}
             name="password"
-            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d!@#$%^&*]{8,}$"
-            title="Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, and one digit."
+            // pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d!@#$%^&*]{8,}$"
+            // title="Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, and one digit."
             minLength={8}
             required
             placeholder="Enter password"
