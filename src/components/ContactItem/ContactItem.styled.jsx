@@ -15,9 +15,12 @@ export const ContactContainerDiv = styled.div`
   border: 1px solid #27ae60;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  transition: background-color 300ms, border 300ms, box-shadow 300ms ease;
 
   :hover,
   :focus {
+    
+    background-color: #f9f9f9;
     border: 1px solid #2ecc71;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
@@ -89,12 +92,14 @@ export const ContactActionsContainer = styled.div`
   align-items: center;
   justify-content: center;
   border-top: 1px solid #27ae60;
-  background-color: #e7e7e7;
+  background-color: #f9f9f9;
   border-radius: 10px;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
   gap: 60px;
   padding: 8px 8px;
+
+
   animation: 250ms ${fadeInDownAnimation};
 `;
 
@@ -156,14 +161,14 @@ export const ContactBtn = styled.button`
   }
 `;
 
-export const FirstLetterContactsGroupDiv = styled.div`
-  position: sticky;
-  top: 0;
-  font-size: 16px;
-`;
-
 export const LetterContainerDiv = styled.div`
   margin-left: 8px;
   width: 15px;
   height: 20px;
+`;
+
+export const FirstLetterContactsGroupDiv = styled.div`
+  font-size: 16px;
+  text-align: center;
+
 `;

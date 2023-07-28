@@ -10,6 +10,7 @@ export const FilterSection = styled.div`
     to bottom,
     rgb(242, 242, 242),
     rgba(242, 242, 242, 0.85)
+    
   );
 `;
 

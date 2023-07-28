@@ -21,5 +21,10 @@ export const HeroH1 = styled.h1`
   color: #fff;
 `;
 export const ImgContainerDiv = styled.div`
-  margin-bottom: 100px;
+display: flex;
+justify-content: center;
+  /* margin-bottom: 100px;
+  height: 150px;
+  width: 150px; */
+  color: #f3f3f3;
 `;

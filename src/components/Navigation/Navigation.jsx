@@ -11,7 +11,7 @@ export const Navigation = () => {
       <NavUl>
         <NavLi>
           <StyledLink to="/">
-            <LogoIcon />
+            <LogoIcon size='18' fontSizeTel={20} fontSizeBook={28} telX='2' telY='10' bookX='2' bookY='0' widthObject="160%" heightObject="160%"/>
             Home
           </StyledLink>
         </NavLi>

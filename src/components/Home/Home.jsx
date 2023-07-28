@@ -1,17 +1,18 @@
 import { HeroContainerDiv, HeroH1, ImgContainerDiv } from './Home.styled';
-import logoContactsLight from '../../images/logoContactsLight.png';
-
+// import logoContactsLight from '../../images/logoContactsLight.png';
+import LogoIcon from '../LogoIcon';
 const Home = () => {
   return (
     <HeroContainerDiv>
       <HeroH1>PhoneBook</HeroH1>
       <ImgContainerDiv>
-        <img
+      <LogoIcon  size="300px" fontSizeTel={250} fontSizeBook={450} telX='16' telY='180' bookX='26' bookY='0' widthObject="160%" heightObject="160%"/>
+        {/* <img
           src={logoContactsLight}
           alt="phonebook."
           width="250"
           height="250"
-        />
+        /> */}
       </ImgContainerDiv>
     </HeroContainerDiv>
   );
