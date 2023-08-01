@@ -9,12 +9,15 @@ export const FilterSection = styled.div`
   background: linear-gradient(
     to bottom,
     rgb(242, 242, 242),
-    rgba(242, 242, 242, 0.85)
-    
+    rgb(242, 242, 242),
+    rgb(242, 242, 242),
+    rgb(242, 242, 242),
+    rgba(242, 242, 242, 0.2)
   );
 `;
 
 export const FilterContainer = styled.div`
+position: relative;
   padding: 0 15px;
 `;
 
@@ -64,4 +67,12 @@ export const FilterInput = styled.input`
   :focus {
     border-color: ${props => (props.isEmptyFilter ? '#f4442e' : '#2ecc71')};
   }
+`;
+
+export const LoaderContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  margin: 0;
+  height: 30px;
 `;

@@ -11,14 +11,6 @@ export const ContactUl = styled.ul`
   gap: 4px;
 `;
 
-export const LoaderContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  padding-top: 10px;
-  margin: 0;
-  height: 30px;
-`;
-
 export const LoaderRotatingLinesContainer = styled.div`
   position: fixed;
   top: 0;

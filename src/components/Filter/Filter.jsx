@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { DebounceInput } from 'react-debounce-input';
 import { BsSearch } from 'react-icons/bs';
 import { setFilter } from 'redux/slices/filterSlice';
+import { LoaderThreeDots } from '../Loader/Loader';
 import {
   FilterSection,
   FilterContainer,
@@ -10,15 +11,18 @@ import {
   LabelP,
   FilterInput,
   IconWrapper,
+  LoaderContainer,
 } from './Filter.styled';
 import {
   selectFilter,
   memoizedFilteredContactsSelector,
+  isLoadingSelector,
 } from 'redux/selectors';
+import NavByLetter from '../NavByLetter';
 
 const Filter = () => {
   const filter = useSelector(selectFilter);
-
+  const isLoading = useSelector(isLoadingSelector);
   const filteredContacts = useSelector(memoizedFilteredContactsSelector);
 
   const isEmptyFilter = filteredContacts.length === 0;
@@ -40,11 +44,12 @@ const Filter = () => {
     label = isNaN(firstChar)
       ? 'Find contacts by Name'
       : 'Find contacts by Number';
-  }
+  };
 
   return (
     <FilterSection>
       <FilterContainer>
+      <NavByLetter/>
         <FilterName>
           <IconWrapper isEmptyFilter={isEmptyFilter}>
             <BsSearch />
@@ -59,9 +64,14 @@ const Filter = () => {
             isEmptyFilter={isEmptyFilter}
           />
         </FilterName>
+        <LoaderContainer>
+        {isLoading && !isEmptyFilter && <LoaderThreeDots />}
+        </LoaderContainer>
       </FilterContainer>
     </FilterSection>
   );
 };
 
 export default Filter;
+
+

@@ -21,10 +21,9 @@ export const HeroH1 = styled.h1`
   color: #fff;
 `;
 export const ImgContainerDiv = styled.div`
+
 display: flex;
 justify-content: center;
-  /* margin-bottom: 100px;
-  height: 150px;
-  width: 150px; */
-  color: #f3f3f3;
+  margin-bottom: 120px;
+  color: #f3f3f3; 
 `;

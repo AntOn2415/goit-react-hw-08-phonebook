@@ -1,25 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
-import { LoaderThreeDots, LoaderRotatingLines } from '../Loader/Loader';
+import { LoaderRotatingLines } from '../Loader/Loader';
 import ContactItem from '../ContactItem';
 import { fetchContacts } from 'redux/operations/contactsOperations';
 import {
   contactsSelector,
-  isLoadingSelector,
   errorSelector,
   memoizedFilteredContactsSelector,
 } from 'redux/selectors';
 import {
   ContactsContainer,
-  LoaderContainer,
   LoaderRotatingLinesContainer,
   ContactUl,
   EmptyContactsMessage,
 } from './ContactList.styled';
 
+
 const ContactList = () => {
-  const isLoading = useSelector(isLoadingSelector);
   const error = useSelector(errorSelector);
   const filteredContacts = useSelector(memoizedFilteredContactsSelector);
   const contacts = useSelector(contactsSelector);
@@ -76,9 +74,6 @@ const ContactList = () => {
   return (
     <section>
       <ContactsContainer>
-        <LoaderContainer>
-          {isLoading && showEmptyMessage && <LoaderThreeDots />}
-        </LoaderContainer>
         {!isEmptyFilter && (
           <ContactUl>
             {filteredContacts.map(contact => (
