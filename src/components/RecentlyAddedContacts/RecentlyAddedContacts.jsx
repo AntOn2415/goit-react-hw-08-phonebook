@@ -2,40 +2,35 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { LoaderRotatingLines } from '../Loader/Loader';
-import ContactItem from '../ContactItem';
+import RecentlyAddedContactItem from '../RecentlyAddedContactItem/RecentlyAddedContactItem'
 import { fetchContacts } from 'redux/operations/contactsOperations';
 import {
   contactsSelector,
   errorSelector,
-  memoizedFilteredContactsSelector,
 } from 'redux/selectors';
 import {
+  TitleH2,
   ContactsContainer,
   LoaderRotatingLinesContainer,
   ContactUl,
-  EmptyContactsMessage,
-} from './ContactList.styled';
+} from './RecentlyAddedContacts.styled';
 
 
-const ContactList = () => {
+const RecentlyAddedContacts = () => {
   const error = useSelector(errorSelector);
-  const filteredContacts = useSelector(memoizedFilteredContactsSelector);
   const contacts = useSelector(contactsSelector);
 
   const [isFetchingContacts, setIsFetchingContacts] = useState(false);
-  const [showEmptyMessage, setShowEmptyMessage] = useState(false);
   const [selectedContactId, setSelectedContactId] = useState(null);
 
   const dispatch = useDispatch();
 
-  const contactsLength = contacts.length;
-  const isEmptyFilter = filteredContacts.length === 0;
+  const isEmptyFilter = contacts.length === 0;
 
   useEffect(() => {
     setIsFetchingContacts(true);
     dispatch(fetchContacts()).finally(() => {
       setIsFetchingContacts(false);
-      setShowEmptyMessage(true);
     });
   }, [dispatch]);
 
@@ -61,23 +56,14 @@ const ContactList = () => {
     );
   }
 
-  if (contactsLength === 0 && showEmptyMessage && !error) {
-    return (
-      <EmptyContactsMessage>Please add your first contact</EmptyContactsMessage>
-    );
-  }
-
-  if (contactsLength > 0 && isEmptyFilter) {
-    return <EmptyContactsMessage>No matching contacts</EmptyContactsMessage>;
-  }
-
   return (
     <section>
+      <TitleH2>Recently added contacts</TitleH2>
       <ContactsContainer>
-        {!isEmptyFilter && (
+      {!isEmptyFilter && (
           <ContactUl>
-            {filteredContacts.map(contact => (
-              <ContactItem
+            {contacts.slice().reverse().map(contact => (
+              <RecentlyAddedContactItem
                 key={contact.id}
                 contact={contact}
                 selectedContactId={selectedContactId}
@@ -91,6 +77,4 @@ const ContactList = () => {
   );
 };
 
-export default ContactList;
-
-
+export default RecentlyAddedContacts;

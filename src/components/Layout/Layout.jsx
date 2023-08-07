@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { AppBar } from '../AppBar/AppBar';
 import { Suspense } from 'react';
@@ -8,10 +8,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import { LoaderForLayout } from 'components/Loader/Loader';
 
 export const Layout = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
   return (
     <>
       <AppBar />
-      <ContainerDiv>
+      <ContainerDiv isHomePage={isHomePage}>
         <Suspense fallback={<LoaderForLayout />}>
           <Outlet />
         </Suspense>

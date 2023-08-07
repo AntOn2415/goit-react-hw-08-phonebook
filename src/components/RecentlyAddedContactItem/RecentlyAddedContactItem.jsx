@@ -1,32 +1,26 @@
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { BsPencil, BsTelephone, BsDashCircle } from 'react-icons/bs';
+import { useDispatch } from 'react-redux';
+import { BsPencil, BsDashCircle } from 'react-icons/bs';
 import { deleteContact } from 'redux/operations/contactsOperations';
-import { uniqueFirstLettersContactsSelector } from 'redux/selectors';
 import {
   ContactLi,
-  FirstLetterContactsGroupDiv,
   ContactContainerDiv,
   FirstLetterNameDiv,
   ContactCardDiv,
   ContactContentP,
   NameSpan,
   PhoneSpan,
-  CallA,
-  ContainerIconSpan,
   ContactActionsContainer,
   EditContactBtn,
   ContactBtn,
-  LetterContainerDiv,
-} from './ContactItem.styled';
+} from './RecentlyAddedContactItem.styled';
 import { Loader } from '../Loader/Loader';
 import { getRandomHexColor } from '../../helpers/getRandomHexColor';
 import Modal from '../Modal';
 import ContactFormEdit from 'components/ContactFormEdit';
 
-const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
-  const uniqueFirstLetters = useSelector(uniqueFirstLettersContactsSelector);
+const RecentlyAddedContactItem = ({ contact, selectedContactId, toggleActions }) => {
 
   const dispatch = useDispatch();
   const [isDeleting, setIsDeleting] = useState(false);
@@ -82,11 +76,6 @@ const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
             <NameSpan>{trimmedName}</NameSpan>
             <PhoneSpan>{number}</PhoneSpan>
           </ContactContentP>
-          <CallA href={`tel:${number}`} title="Call">
-            <ContainerIconSpan>
-              <BsTelephone />
-            </ContainerIconSpan>
-          </CallA>
         </ContactCardDiv>
 
         {isActionsContainerOpen && (
@@ -107,13 +96,6 @@ const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
           </ContactActionsContainer>
         )}
       </ContactContainerDiv>
-      <LetterContainerDiv>
-        {uniqueFirstLetters.includes(id) && (
-          <FirstLetterContactsGroupDiv>
-            {name.charAt(0)}
-          </FirstLetterContactsGroupDiv>
-        )}
-      </LetterContainerDiv>
       {isOpenModal && (
         <Modal
           contactId={contact.id}
@@ -127,7 +109,7 @@ const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
   );
 };
 
-ContactItem.propTypes = {
+RecentlyAddedContactItem.propTypes = {
   contact: PropTypes.shape({
     name: PropTypes.string.isRequired,
     number: PropTypes.string.isRequired,
@@ -136,5 +118,5 @@ ContactItem.propTypes = {
   toggleActions: PropTypes.func,
 };
 
-export default ContactItem;
+export default RecentlyAddedContactItem;
 

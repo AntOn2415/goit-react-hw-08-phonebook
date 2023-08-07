@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
 export const FilterSection = styled.div`
-  padding: 30px 0 0;
   position: sticky;
   top: 0px;
-  z-index: 2;
+  z-index: 1;
   padding-top: 30px;
   background: linear-gradient(
     to bottom,
@@ -18,7 +17,7 @@ export const FilterSection = styled.div`
 
 export const FilterContainer = styled.div`
 position: relative;
-  padding: 0 15px;
+  padding: 0;
 `;
 
 export const FilterName = styled.label`
@@ -66,6 +65,18 @@ export const FilterInput = styled.input`
   :hover,
   :focus {
     border-color: ${props => (props.isEmptyFilter ? '#f4442e' : '#2ecc71')};
+  }
+
+  @media screen and (max-width: 720px) {
+    max-width: 360px;
+  }
+
+  @media screen and (max-width: 844px) {
+    min-width: 250px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    min-width: 390px;
   }
 `;
 

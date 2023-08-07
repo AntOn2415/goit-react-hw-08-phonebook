@@ -72,11 +72,6 @@ export const PhoneSpan = styled.span`
   font-size: 12px;
 `;
 
-export const CallA = styled.a`
-  padding-left: 20px;
-  cursor: default;
-`;
-
 export const ContainerIconSpan = styled.span`
   display: flex;
   align-items: center;
@@ -172,15 +167,4 @@ export const ContactBtn = styled.button`
   }
 `;
 
-export const LetterContainerDiv = styled.div`
-  margin-left: 8px;
-  width: 15px;
-  height: 20px;
-`;
-
-export const FirstLetterContactsGroupDiv = styled.div`
-  font-size: 16px;
-  text-align: center;
-
-`;
 

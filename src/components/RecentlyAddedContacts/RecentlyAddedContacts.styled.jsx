@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 
+export const TitleH2 = styled.h2`
+  font-size: 24px;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+`
 export const ContactsContainer = styled.div`
+
   padding: 0;
 `;
 
@@ -8,7 +15,9 @@ export const ContactUl = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 4px;
+  height: 335px;
   margin-left: 1px;
+  overflow: hidden;
 `;
 
 export const LoaderRotatingLinesContainer = styled.div`

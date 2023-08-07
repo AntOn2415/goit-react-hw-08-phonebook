@@ -7,6 +7,12 @@ export const UserMenuContainerDiv = styled.div`
   justify-content: center;
   gap: 4px;
   cursor: default;
+
+  @media screen and (min-width: 740px) {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
 `;
 
 export const NameSpan = styled.span`

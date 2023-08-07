@@ -18,7 +18,6 @@ import {
   memoizedFilteredContactsSelector,
   isLoadingSelector,
 } from 'redux/selectors';
-import NavByLetter from '../NavByLetter';
 
 const Filter = () => {
   const filter = useSelector(selectFilter);
@@ -49,7 +48,6 @@ const Filter = () => {
   return (
     <FilterSection>
       <FilterContainer>
-      <NavByLetter/>
         <FilterName>
           <IconWrapper isEmptyFilter={isEmptyFilter}>
             <BsSearch />

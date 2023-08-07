@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useMediaQuery } from '@react-hook/media-query';
 import { BsPersonPlus, BsTelephonePlus } from 'react-icons/bs';
 import { addContact } from 'redux/operations/contactsOperations';
 import { isLoadingSelector } from 'redux/selectors';
@@ -13,11 +14,15 @@ import {
   BtnForm,
 } from './ContactForm.styled';
 
+import RecentlyAddedContacts from '../RecentlyAddedContacts';
+
 function ContactForm() {
   const isLoading = useSelector(isLoadingSelector);
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+
+  const isLargeScreen = useMediaQuery('(min-width: 1024px)');
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
@@ -90,8 +95,10 @@ function ContactForm() {
             Add contact
           </BtnForm>
         </Form>
+
+        {isLargeScreen && <RecentlyAddedContacts />}
       </FormContainer>
-    </section>
+      </section>
   );
 }
 

@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 
 export const FormContainer = styled.div`
-  padding: 30px 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 30px 0 0;
 `;
 
 export const Form = styled.form`
@@ -9,6 +12,10 @@ export const Form = styled.form`
   gap: 10px;
   flex-direction: column;
   margin-right: 20px;
+
+  @media screen and (min-width: 717px) {
+    margin-right: 0;
+  }
 `;
 
 export const LabelForm = styled.label`
@@ -66,6 +73,14 @@ export const InputForm = styled.input`
 
   ::placeholder {
     color: #777;
+  }
+
+  @media screen and (min-width: 844px) {
+    min-width: 250px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    min-width: 390px;
   }
 `;
 

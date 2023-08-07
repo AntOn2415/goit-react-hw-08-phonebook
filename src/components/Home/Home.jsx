@@ -7,12 +7,6 @@ const Home = () => {
       <HeroH1>PhoneBook</HeroH1>
       <ImgContainerDiv>
       <LogoIcon  size="300px" fontSizeTel={250} fontSizeBook={450} telX='16' telY='180' bookX='26' bookY='0' widthObject="160%" heightObject="160%"/>
-        {/* <img
-          src={logoContactsLight}
-          alt="phonebook."
-          width="250"
-          height="250"
-        /> */}
       </ImgContainerDiv>
     </HeroContainerDiv>
   );

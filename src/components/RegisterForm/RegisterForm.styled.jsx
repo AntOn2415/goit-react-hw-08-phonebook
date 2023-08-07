@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const FormContainer = styled.div`
-  padding: 30px 15px 0;
+  padding: 30px 0 0;
   margin-bottom: 30px;
 `;
 

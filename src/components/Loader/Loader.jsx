@@ -9,7 +9,7 @@ const Loader = () => {
         top: -27,
         left: -4,
         borderRadius: '0px',
-        zIndex: 1,
+        zIndex: 10,
       }}
       wrapperClass="progress-bar-wrapper"
       borderColor=""
