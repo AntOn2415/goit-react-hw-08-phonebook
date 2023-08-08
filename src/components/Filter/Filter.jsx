@@ -6,6 +6,7 @@ import { setFilter } from 'redux/slices/filterSlice';
 import { LoaderThreeDots } from '../Loader/Loader';
 import {
   FilterSection,
+  TitleHiddenH2,
   FilterContainer,
   FilterName,
   LabelP,
@@ -47,6 +48,7 @@ const Filter = () => {
 
   return (
     <FilterSection>
+      <TitleHiddenH2>Find contacts by Name or Number</TitleHiddenH2>
       <FilterContainer>
         <FilterName>
           <IconWrapper isEmptyFilter={isEmptyFilter}>

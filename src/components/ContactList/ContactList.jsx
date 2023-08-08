@@ -10,6 +10,7 @@ import {
   memoizedFilteredContactsSelector,
 } from 'redux/selectors';
 import {
+  TitleHiddenH2,
   ContactsContainer,
   LoaderRotatingLinesContainer,
   ContactUl,
@@ -73,6 +74,7 @@ const ContactList = () => {
 
   return (
     <section>
+      <TitleHiddenH2>Сontact list</TitleHiddenH2>
       <ContactsContainer>
         {!isEmptyFilter && (
           <ContactUl>

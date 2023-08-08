@@ -5,6 +5,7 @@ import { BsPersonPlus, BsTelephonePlus } from 'react-icons/bs';
 import { addContact } from 'redux/operations/contactsOperations';
 import { isLoadingSelector } from 'redux/selectors';
 import {
+  TitleHiddenH2,
   FormContainer,
   Form,
   IconWrapper,
@@ -52,6 +53,7 @@ function ContactForm() {
 
   return (
     <section>
+      <TitleHiddenH2>Add contact</TitleHiddenH2>
       <FormContainer>
         <Form onSubmit={handleAddContact}>
           <LabelForm>
