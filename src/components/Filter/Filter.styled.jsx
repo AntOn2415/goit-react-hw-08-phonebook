@@ -67,17 +67,18 @@ export const FilterInput = styled.input`
     border-color: ${props => (props.isEmptyFilter ? '#f4442e' : '#2ecc71')};
   }
 
-  @media screen and (max-width: 720px) {
-    max-width: 360px;
+  @media screen and (min-width: 716px) {
+    min-width: 200px;
   }
 
-  @media screen and (max-width: 844px) {
-    min-width: 250px;
-  }
-
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 717px) {
     min-width: 390px;
   }
+
+  @media screen and (min-width: 668px) and (max-width: 717px) {
+    max-width: 340px;
+  }
+
 `;
 
 export const LoaderContainer = styled.div`

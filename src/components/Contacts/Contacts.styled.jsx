@@ -8,10 +8,6 @@ export const ContactsContainerDiv = styled.div`
     display: flex; 
     justify-content: space-between;
   }
-  
-  /* @media screen and (min-width: 1024px) {
-    /* justify-content: center; */
-  /* } */ 
 
   @media screen and (min-width: 1200px) {
     justify-content: center;

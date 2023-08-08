@@ -30,7 +30,7 @@ const RecentlyAddedContactItem = ({ contact, selectedContactId, toggleActions })
   const { id, name, number } = contact;
 
   const trimmedName =
-    contact.name.length > 24 ? `${contact.name.slice(0, 20)}...` : contact.name;
+    contact.name.length > 34 ? `${contact.name.slice(0, 30)}...` : contact.name;
 
   const isActionsContainerOpen = selectedContactId === contact.id;
 

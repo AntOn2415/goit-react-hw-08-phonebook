@@ -28,12 +28,16 @@ export const ContactContainerDiv = styled.div`
 
   animation: 300ms ${fadeInUpAnimation};
 
-  @media screen and (min-width: 668px) {
+  /* @media screen and (max-width: 668px) {
     min-width: 410px;
-  }
+  } */
 
   @media screen and (min-width: 717px) {
     min-width: 390px;
+  }
+
+  @media screen and (min-width: 668px) and (max-width: 717px) {
+    max-width: 340px;
   }
 `;
 
