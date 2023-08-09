@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import PhoneInput from 'react-phone-number-input';
 
 export const TitleHiddenH2 = styled.h2`
-   position: absolute;
+  position: absolute;
   white-space: nowrap;
   width: 1px;
   height: 1px;
@@ -49,8 +50,8 @@ export const LabelForm = styled.label`
 
 export const IconWrapper = styled.div`
   position: absolute;
-  top: 55%;
-  left: 10px;
+  top: 52%;
+  left: 14px;
   transition: color 300ms ease;
   color: #777;
 `;
@@ -63,7 +64,7 @@ export const LabelSpan = styled.span`
 export const InputForm = styled.input`
   min-width: 180px;
   padding: 10px;
-  padding-left: 26px;
+  padding-left: 34px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -94,6 +95,68 @@ export const InputForm = styled.input`
 
   @media screen and (min-width: 1024px) {
     min-width: 390px;
+  }
+`;
+
+export const StyledPhoneInput = styled(PhoneInput)`
+
+  input {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    padding-left: 34px;
+    min-width: 180px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #333;
+    outline: none;  
+    transition: border-color 300ms ease;
+
+  :hover,
+  :focus {
+    border-color: #27ae60;
+  }
+
+  :not(:placeholder-shown):required:valid {
+    border-color: #27ae60;
+  }
+
+  :not(:placeholder-shown):required:invalid {
+    border-color: #f4442e;
+  }
+
+  ::placeholder {
+    color: #777;
+  }
+
+  @media screen and (min-width: 844px) {
+    min-width: 250px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    min-width: 390px;
+  }
+  }
+
+  .PhoneInputCountryIcon {
+    position: absolute;
+    top: 50%;
+    left: 6px;
+    height: 16px;
+    width: 25px;
+  }
+
+  .PhoneInputCountrySelect {
+    position: absolute;
+    height: 35px;
+    width: 30px;
+    top: 34%;
+    left: 3px;
+    opacity: 0;
+    z-index: 10;
+    cursor: pointer;
   }
 `;
 

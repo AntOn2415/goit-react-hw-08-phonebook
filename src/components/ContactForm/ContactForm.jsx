@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useMediaQuery } from '@react-hook/media-query';
-import { BsPersonPlus, BsTelephonePlus } from 'react-icons/bs';
+import { BsPersonPlus } from 'react-icons/bs';
 import { addContact } from 'redux/operations/contactsOperations';
 import { isLoadingSelector } from 'redux/selectors';
+
 import {
   TitleHiddenH2,
   FormContainer,
@@ -12,6 +13,7 @@ import {
   LabelForm,
   LabelSpan,
   InputForm,
+  StyledPhoneInput,
   BtnForm,
 } from './ContactForm.styled';
 
@@ -27,17 +29,8 @@ function ContactForm() {
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
-    switch (name) {
-      case 'name':
-        setName(value.replace(/(^|\s)\S/g, match => match.toUpperCase()));
-        break;
-
-      case 'number':
-        setNumber(value);
-        break;
-
-      default:
-        return;
+    if (name === 'name') {
+      setName(value.replace(/(^|\s)\S/g, match => match.toUpperCase()));
     }
   };
 
@@ -48,8 +41,9 @@ function ContactForm() {
     setName('');
     setNumber('');
   };
-
-  const isButtonDisabled = name.trim() === '' || number.trim() === '';
+  
+  
+  const isButtonDisabled = name.trim() === '' || number === '';
 
   return (
     <section>
@@ -73,19 +67,15 @@ function ContactForm() {
             />
           </LabelForm>
           <LabelForm>
-            <IconWrapper>
-              <BsTelephonePlus />
-            </IconWrapper>
             <LabelSpan>Number</LabelSpan>
-            <InputForm
-              type="tel"
-              value={number}
-              name="number"
+            <StyledPhoneInput
+              defaultCountry="UA"
+              placeholder="Enter phone number"
               pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
               required
-              placeholder="Enter phone number"
-              onChange={handleChange}
+              value={number}
+              onChange={setNumber}
             />
           </LabelForm>
 
@@ -100,7 +90,7 @@ function ContactForm() {
 
         {isLargeScreen && <RecentlyAddedContacts />}
       </FormContainer>
-      </section>
+    </section>
   );
 }
 

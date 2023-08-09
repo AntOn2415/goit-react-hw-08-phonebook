@@ -21,7 +21,7 @@ import {
   LetterContainerDiv,
 } from './ContactItem.styled';
 import { Loader } from '../Loader/Loader';
-import { getRandomHexColor } from '../../helpers/getRandomHexColor';
+import { getRandomHexColor } from 'helpers';
 import Modal from '../Modal';
 import ContactFormEdit from 'components/ContactFormEdit';
 
