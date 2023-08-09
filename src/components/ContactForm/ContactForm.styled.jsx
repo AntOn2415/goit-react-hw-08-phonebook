@@ -105,6 +105,7 @@ export const StyledPhoneInput = styled(PhoneInput)`
     align-items: center;
     padding: 10px;
     padding-left: 34px;
+    width: calc(100% - 46px);
     min-width: 180px;
     font-size: 16px;
     border: 1px solid #ccc;
