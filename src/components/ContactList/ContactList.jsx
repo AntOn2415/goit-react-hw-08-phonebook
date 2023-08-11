@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { LoaderRotatingLines } from '../Loader/Loader';
 import ContactItem from '../ContactItem';
 import { fetchContacts } from 'redux/operations/contactsOperations';
+import { useThemeContext } from '../../hooks/ThemeContext'; 
 import {
   contactsSelector,
   errorSelector,
@@ -47,13 +48,15 @@ const ContactList = () => {
   const toggleActions = contactId => {
     setSelectedContactId(prevId => (prevId === contactId ? null : contactId));
   };
-
+  
   useEffect(() => {
     if (selectedContactId === null) {
       toggleActions(selectedContactId);
     }
   }, [selectedContactId]);
-
+  
+  useThemeContext();
+  
   if (isFetchingContacts) {
     return (
       <LoaderRotatingLinesContainer>
@@ -71,6 +74,7 @@ const ContactList = () => {
   if (contactsLength > 0 && isEmptyFilter) {
     return <EmptyContactsMessage>No matching contacts</EmptyContactsMessage>;
   }
+  
 
   return (
     <section>

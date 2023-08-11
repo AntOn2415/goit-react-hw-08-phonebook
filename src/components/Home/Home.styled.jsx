@@ -17,12 +17,11 @@ export const HeroH1 = styled.h1`
   text-align: center;
   letter-spacing: 0.06em;
   line-height: 1.364;
-  color: #fff;
+  color: ${({ theme }) => theme.colors.white};
 `;
 export const ImgContainerDiv = styled.div`
-
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
   margin-bottom: 120px;
-  color: #f3f3f3; 
+  color: ${({ theme }) => theme.colors.logo};
 `;

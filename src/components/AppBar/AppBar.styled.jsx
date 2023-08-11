@@ -1,8 +1,12 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { zoomIn } from 'react-animations';
+import { MediaScreenCommon } from '../componentStyles';
+
+const zoomInAnimation = keyframes`${zoomIn}`;
 
 export const Header = styled.div`
- border-bottom: 1px solid #ccc;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  border-bottom: ${({ theme }) => theme.borders.border};
+  box-shadow: ${({ theme }) => theme.shadows.default};
 `;
 
 export const HeaderContainer = styled.div`
@@ -13,21 +17,34 @@ export const HeaderContainer = styled.div`
   margin-right: auto;
   margin-left: auto;
 
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.pure};
   padding: 0 15px;
   height: 60px;
 
-  @media screen and (max-width: 667px) {
-    max-width: 740px; 
-  }
+  ${MediaScreenCommon};
+`;
 
-  @media screen and (min-width: 668px) {
-    max-width: 1024px; 
-    padding: 0 30px;
-  }
-  
-  @media screen and (min-width: 1024px) {
-    max-width: 1600px; 
-    padding: 0 60px;
+export const ToggleButton = styled.button`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 60px;
+  padding-bottom: 8px;
+  height: 60px;
+  width: calc(100% - 200px);
+  font-size: 30px;
+  top: 0;
+  left: 80px;
+  color: transparent;
+  background-color: transparent;
+  border: none;
+  z-index: 1;
+  /* cursor: pointer; */
+
+  :hover {
+    color: ${({ theme }) => theme.colors.toggleTheme};
+    animation: 5000ms ${zoomInAnimation};
+    cursor: pointer;
   }
 `;

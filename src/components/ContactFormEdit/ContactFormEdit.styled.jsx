@@ -1,36 +1,28 @@
 import styled from 'styled-components';
-
+import {FormCommon, LabelCommon, IconWrapperCommon, InputCommon, InputFormCommon, BtnCommon} from '../componentStyles';
 export const FormContainer = styled.div`
+
   margin-bottom: 30px;
 `;
 
 export const Form = styled.form`
-  display: flex;
-  gap: 10px;
-  flex-direction: column;
+  ${FormCommon};
 `;
 
 export const LabelForm = styled.label`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  font-weight: 700;
-  font-size: 12px;
-  color: #333;
-  transition: font-size 300ms, color 300ms ease;
+  ${LabelCommon};
+  font-size: ${({ theme }) => theme.fontSizes.tiny};
+  color: ${({ theme }) => theme.colors.text};
 
   :focus-within {
-    color: #000;
-    font-size: 14px;
+    color: ${({ theme }) => theme.colors.textFocus};
+    font-size: ${({ theme }) => theme.fontSizes.small};
   }
 `;
 
 export const IconWrapper = styled.div`
-  position: absolute;
-  top: 55%;
-  left: 10px;
-  transition: color 300ms ease;
-  color: #777;
+  ${IconWrapperCommon};
+  color: ${({ theme }) => theme.colors.placeholder};
 `;
 
 export const LabelSpan = styled.span`
@@ -39,59 +31,48 @@ export const LabelSpan = styled.span`
 `;
 
 export const InputForm = styled.input`
-  min-width: 180px;
-  padding: 10px;
-  padding-left: 26px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  color: #333;
-  outline: none;
-  transition: border-color 300ms ease;
-
-  :hover,
+  ${InputCommon};
+ border: ${({ theme }) => theme.borders.border};
+  font-size: ${({ theme }) => theme.fontSizes.medium};
+  border-radius:  ${({ theme }) => theme.borders.borderRadius};
+  color: ${({ theme }) => theme.colors.text};
+  background-color: ${({ theme }) => theme.colors.backgroundSecondary};
+  ${InputFormCommon};
+:hover,
   :focus {
-    border-color: #27ae60;
+    border-color: ${({ theme }) => theme.borders.borderColorHover};
   }
 
   :not(:placeholder-shown):required:valid {
-    border-color: #27ae60;
+    border-color: ${({ theme }) => theme.borders.borderColorValid};
   }
 
   :not(:placeholder-shown):required:invalid {
-    border-color: #f4442e;
+    border-color: ${({ theme }) => theme.borders.borderColorInvalid};
   }
 
   ::placeholder {
-    color: #777;
-  }
+    color: ${({ theme }) => theme.colors.placeholder};
+  };
 `;
 
 export const BtnForm = styled.button`
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5px;
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  background-color: #27ae60;
-  color: #fff;
-  outline: none;
-  border: none;
-  border-radius: 10px;
+  ${BtnCommon};
+font-size: ${({ theme }) => theme.fontSizes.medium};
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.white};
+  border-radius:  ${({ theme }) => theme.borders.borderRadius};
   cursor: ${props => (props.isLoading ? 'not-allowed' : 'pointer')};
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-  transition: box-shadow 300ms, background-color 300ms ease;
+  box-shadow: ${({ theme }) => theme.shadows.default};
 
   :hover,
   :focus {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    background-color: ${props => (props.isLoading ? '#27ae60' : '#2ecc71')};
+    box-shadow: ${({ theme }) => theme.shadows.hover};
+    background-color: ${props => (props.isLoading ? props.theme.colors.primary : props.theme.colors.secondary)};
   }
 
   :disabled {
     background-color: rgba(39, 174, 96, 0.6);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    box-shadow: ${({ theme }) => theme.shadows.default};
     cursor: not-allowed;
-  }
-`;
+  }`;

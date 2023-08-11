@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { BsLock, BsEnvelopeAt } from 'react-icons/bs';
 import { authOperations } from 'redux/auth';
 import { isLoadingSelector } from 'redux/selectors';
+import { useThemeContext } from '../../hooks/ThemeContext'; 
 import {
   FormContainer,
   Form,
@@ -45,6 +46,8 @@ function LoginView() {
 
   const isButtonDisabled = email.trim() === '' || password.trim() === '';
 
+  useThemeContext();
+  
   return (
     <section>
       <FormContainer>

@@ -12,8 +12,10 @@ import {
   InputForm,
   BtnForm,
 } from './ContactFormEdit.styled';
+import { useThemeContext } from '../../hooks/ThemeContext'; 
 
 function ContactFormEdit({ contact, onCloseModal }) {
+
   const isLoading = useSelector(isLoadingSelector);
   const dispatch = useDispatch();
 
@@ -68,6 +70,8 @@ function ContactFormEdit({ contact, onCloseModal }) {
 
   const isButtonDisabled = name.trim() === '' && number.trim() === '';
 
+  useThemeContext();
+  
   return (
     <FormContainer>
       <Form onSubmit={handleEditContact}>

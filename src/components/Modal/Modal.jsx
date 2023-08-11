@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { createPortal } from 'react-dom';
+import { useThemeContext } from '../../hooks/ThemeContext'; 
 import { ModalBackdrop, ModalDiv, CloseBtn } from './Modal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
@@ -22,6 +23,8 @@ function Modal({ children, onCloseModal, isOpenModal }) {
   const handleContentClick = e => {
     e.stopPropagation();
   };
+
+  useThemeContext();
 
   return createPortal(
     <ModalBackdrop onClick={onCloseModal} showModal={isOpenModal}>

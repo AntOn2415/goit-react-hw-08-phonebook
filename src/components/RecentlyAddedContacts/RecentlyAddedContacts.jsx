@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
 import { LoaderRotatingLines } from '../Loader/Loader';
 import RecentlyAddedContactItem from '../RecentlyAddedContactItem/RecentlyAddedContactItem'
 import { fetchContacts } from 'redux/operations/contactsOperations';
+import { useThemeContext } from '../../hooks/ThemeContext'; 
 import {
   contactsSelector,
-  errorSelector,
 } from 'redux/selectors';
 import {
   TitleH2,
@@ -17,7 +16,6 @@ import {
 
 
 const RecentlyAddedContacts = () => {
-  const error = useSelector(errorSelector);
   const contacts = useSelector(contactsSelector);
 
   const [isFetchingContacts, setIsFetchingContacts] = useState(false);
@@ -34,9 +32,6 @@ const RecentlyAddedContacts = () => {
     });
   }, [dispatch]);
 
-  useEffect(() => {
-    error && toast.error(error);
-  }, [error]);
 
   const toggleActions = contactId => {
     setSelectedContactId(prevId => (prevId === contactId ? null : contactId));
@@ -47,6 +42,8 @@ const RecentlyAddedContacts = () => {
       toggleActions(selectedContactId);
     }
   }, [selectedContactId]);
+  
+  useThemeContext();
 
   if (isFetchingContacts) {
     return (
@@ -54,7 +51,7 @@ const RecentlyAddedContacts = () => {
         <LoaderRotatingLines />
       </LoaderRotatingLinesContainer>
     );
-  }
+  };
 
   return (
     <section>

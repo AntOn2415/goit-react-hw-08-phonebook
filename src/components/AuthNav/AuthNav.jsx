@@ -1,6 +1,8 @@
 import { NavUl, NavLi, StyledLink } from './AuthNav.styled';
+import { useThemeContext } from '../../hooks/ThemeContext'; 
 
 export const AuthNav = () => {
+  useThemeContext();
   return (
     <div>
       <NavUl>

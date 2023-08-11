@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {MediaScreenCommon} from '../componentStyles';
 
 export const ContainerDiv = styled.div`
   display: flex;
@@ -8,19 +9,6 @@ export const ContainerDiv = styled.div`
   margin-right: auto;
   max-width: 420px;
   min-height: 100vh;
-  background: ${props => (props.isHomePage ? 'linear-gradient(to bottom, #096b32, #72eba6)' : '#f3f3f3')};
-
-  @media screen and (max-width: 667px) {
-    max-width: 740px; 
-  }
-
-  @media screen and (min-width: 668px) {
-    max-width: 1024px; 
-    padding: 0 30px;
-  }
-  
-  @media screen and (min-width: 1024px) {
-    max-width: 1600px; 
-    padding: 0 60px;
-  }
+  background: ${props => (props.isHomePage ? `linear-gradient(to bottom, ${props.theme.colors.backgroundHomeTop}, ${props.theme.colors.backgroundHome})` : props.theme.colors.backgroundPrimary)};
+  ${MediaScreenCommon};
 `;

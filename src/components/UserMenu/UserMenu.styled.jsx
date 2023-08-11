@@ -7,7 +7,7 @@ export const UserMenuContainerDiv = styled.div`
   justify-content: center;
   gap: 4px;
   cursor: default;
-
+  z-index: 10;
   @media screen and (min-width: 740px) {
     flex-direction: row;
     align-items: center;
@@ -16,7 +16,8 @@ export const UserMenuContainerDiv = styled.div`
 `;
 
 export const NameSpan = styled.span`
-  font-size: 16px;
+  font-size: ${({ theme }) => theme.fontSizes.medium};
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const BtnLogout = styled.button`
@@ -27,19 +28,19 @@ export const BtnLogout = styled.button`
   gap: 4px;
   width: 80px;
   height: 22px;
-  font-size: 14px;
-  background-color: #27ae60;
-  color: #fff;
+  font-size: ${({ theme }) => theme.fontSizes.small};
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.white};
   outline: none;
   border: none;
   border-radius: 20px;
   cursor: ${props => (props.isLoading ? 'not-allowed' : 'pointer')};
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: ${({ theme }) => theme.shadows.default};
   transition: box-shadow 300ms, background-color 300ms ease;
-
+  z-index: 10;
   :hover,
   :focus {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    background-color: ${props => (props.isLoading ? '#27ae60' : '#2ecc71')};
+    box-shadow: ${({ theme }) => theme.shadows.hover};
+    background-color: ${props => (props.isLoading ? props.theme.colors.primary : props.theme.colors.secondary)};
   }
 `;

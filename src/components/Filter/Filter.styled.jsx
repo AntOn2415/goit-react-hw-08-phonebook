@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {VisibilityHidden, IconWrapperCommon, InputCommon} from '../componentStyles';
 
 export const FilterSection = styled.div`
   position: sticky;
@@ -7,25 +8,16 @@ export const FilterSection = styled.div`
   padding-top: 30px;
   background: linear-gradient(
     to bottom,
-    rgb(242, 242, 242),
-    rgb(242, 242, 242),
-    rgb(242, 242, 242),
-    rgb(242, 242, 242),
-    rgba(242, 242, 242, 0.2)
+    ${({ theme }) => theme.colors.backgroundGradient},
+  ${({ theme }) => theme.colors.backgroundGradient},
+  ${({ theme }) => theme.colors.backgroundGradient},
+  ${({ theme }) => theme.colors.backgroundGradient},
+  ${({ theme }) => theme.colors.backgroundGradientTransparent}
   );
 `;
 
 export const TitleHiddenH2 = styled.h2`
-   position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  margin: -1px;
+  ${VisibilityHidden};
 `
 
 export const FilterContainer = styled.div`
@@ -38,23 +30,21 @@ export const FilterName = styled.label`
   display: flex;
   flex-direction: column;
   font-weight: 700;
-  font-size: 12px;
-  color: #333;
+  font-size: ${({ theme }) => theme.fontSizes.tiny};
+  color:${({ theme }) => theme.colors.text};
 
   transition: color 300ms ease, font-size 300ms ease;
 
   :focus-within {
-    color: #000;
-    font-size: 14px;
+    color: ${({ theme }) => theme.colors.textFocus};
+    font-size: ${({ theme }) => theme.fontSizes.small};
   }
 `;
 
 export const IconWrapper = styled.div`
-  position: absolute;
-  top: 55%;
-  left: 10px;
-  transition: color 300ms ease;
-  color: ${props => (props.isEmptyFilter ? '#f4442e' : '#777')};
+  ${IconWrapperCommon};
+  color: ${props => (props.isEmptyFilter ? props.theme.colors.danger : props.theme.colors.placeholder)};
+
 `;
 
 export const LabelP = styled.p`
@@ -63,34 +53,32 @@ export const LabelP = styled.p`
 `;
 
 export const FilterInput = styled.input`
-  min-width: 180px;
-  padding: 10px;
-  padding-left: 26px;
-  margin-right: 20px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-color: 2ecc71;
-  border-radius: 10px;
-  color: #333;
-  outline: none;
-  transition: border-color 300ms ease;
-
+  ${InputCommon};
+ border: ${({ theme }) => theme.borders.border};
+  font-size: ${({ theme }) => theme.fontSizes.medium};
+  border-radius:  ${({ theme }) => theme.borders.borderRadius};
+  color: ${({ theme }) => theme.colors.text};
+  background-color: ${({ theme }) => theme.colors.backgroundSecondary};
+    margin-right: 20px;
+    padding-left: 26px;
+  
   :hover,
   :focus {
-    border-color: ${props => (props.isEmptyFilter ? '#f4442e' : '#2ecc71')};
+    border-color: ${props => (props.isEmptyFilter ? props.theme.colors.danger : props.theme.colors.secondary)};
   }
-
+  
   @media screen and (min-width: 716px) {
     min-width: 200px;
   }
-
+  
   @media screen and (min-width: 717px) {
     min-width: 390px;
   }
-
+  
   @media screen and (min-width: 668px) and (max-width: 717px) {
     max-width: 340px;
   }
+  
 
 `;
 

@@ -1,11 +1,14 @@
 import React from 'react';
 import { useAuth } from '../../hooks';
+import { useThemeContext } from '../../hooks/ThemeContext';
 import { NavUl, NavLi, StyledLink } from './Navigation.styled';
 import LogoIcon from '../LogoIcon';
 
 export const Navigation = () => {
   const { isLoggedIn } = useAuth();
 
+  useThemeContext();
+  
   return (
     <nav>
       <NavUl>

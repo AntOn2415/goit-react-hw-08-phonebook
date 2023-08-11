@@ -1,11 +1,9 @@
 import styled, { keyframes } from 'styled-components';
-import { fadeIn, fadeOut, zoomIn, zoomOut } from 'react-animations';
+import { fadeIn, zoomIn } from 'react-animations';
 
 const fadeInAnimation = keyframes`${fadeIn}`;
-const fadeOutAnimation = keyframes`${fadeOut}`;
 
 const zoomInAnimation = keyframes`${zoomIn}`;
-const zoomOutAnimation = keyframes`${zoomOut}`;
 
 export const ModalBackdrop = styled.div`
   position: fixed;
@@ -16,14 +14,13 @@ export const ModalBackdrop = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(247, 247, 247, 0.3);
+  background-color: ${({ theme }) => theme.colors.backgroundColorLoader};
   backdrop-filter: blur(1px);
   z-index: 998;
   overflow-y: scroll;
   overflow: hidden;
 
-  animation: 500ms ${fadeInAnimation}; // при відкритті */
-  /* animation: 500ms ${fadeOutAnimation}; // при закритті  */
+  animation: 500ms ${fadeInAnimation};
 `;
 
 export const ModalDiv = styled.div`
@@ -31,12 +28,11 @@ export const ModalDiv = styled.div`
   padding: 60px 20px;
   min-width: calc(100vw - 100px);
   min-height: calc(100vh - 300px);
-  background-color: #f2f2f2;
+  background-color: ${({ theme }) => theme.colors.backgroundModal};
   border-radius: 18px;
-  border: 1px solid #27ae60;
+  border: 1px solid ${({ theme }) => theme.colors.primary};
 
   animation: 300ms ${zoomInAnimation};
-  /* animation: 300ms ${zoomOutAnimation};// при закритті  */
 `;
 
 export const CloseBtn = styled.button`
@@ -53,17 +49,17 @@ export const CloseBtn = styled.button`
   border-radius: 50%;
   background: inherit;
   font-size: 60px;
-  background-color: #27ae60;
-  color: #fff;
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.pure};
   outline: none;
   border: none;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: ${({ theme }) => theme.shadows.default};
   transition: box-shadow 300ms, background-color 300ms, color 300ms ease;
 
   :hover,
   :focus {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    background-color: #fff;
-    color: #f4442e;
+    box-shadow: ${({ theme }) => theme.shadows.hover};
+    background-color: ${({ theme }) => theme.colors.pure};
+    color: ${({ theme }) => theme.colors.danger};
   }
 `;

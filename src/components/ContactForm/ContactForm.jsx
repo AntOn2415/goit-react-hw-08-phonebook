@@ -4,7 +4,7 @@ import { useMediaQuery } from '@react-hook/media-query';
 import { BsPersonPlus } from 'react-icons/bs';
 import { addContact } from 'redux/operations/contactsOperations';
 import { isLoadingSelector } from 'redux/selectors';
-
+import { useThemeContext } from '../../hooks/ThemeContext'; 
 import {
   TitleHiddenH2,
   FormContainer,
@@ -44,6 +44,8 @@ function ContactForm() {
   
   
   const isButtonDisabled = name.trim() === '' || number === '';
+
+  useThemeContext()
 
   return (
     <section>

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { BsPersonPlus, BsUnlock, BsLock, BsEnvelopeAt } from 'react-icons/bs';
 import { authOperations } from 'redux/auth';
 import { isLoadingSelector } from 'redux/selectors';
+import { useThemeContext } from '../../hooks/ThemeContext'; 
 import {
   FormContainer,
   Form,
@@ -67,11 +68,14 @@ function RegisterForm() {
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d!@#$%^&*]{8,}$/.test(password);
 
   const doPasswordsMatch = password && password === confirmPassword;
+
   const isButtonDisabled =
     name.trim() === '' ||
     email.trim() === '' ||
     password.trim() === '' ||
     !doPasswordsMatch;
+
+  useThemeContext();
 
   return (
     <FormContainer>

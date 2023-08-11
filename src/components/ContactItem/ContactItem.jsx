@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { BsPencil, BsTelephone, BsDashCircle } from 'react-icons/bs';
 import { deleteContact } from 'redux/operations/contactsOperations';
 import { uniqueFirstLettersContactsSelector } from 'redux/selectors';
+import { useThemeContext } from '../../hooks/ThemeContext'; 
 import {
   ContactLi,
   FirstLetterContactsGroupDiv,
@@ -17,7 +18,7 @@ import {
   ContainerIconSpan,
   ContactActionsContainer,
   EditContactBtn,
-  ContactBtn,
+  ContactDeleteBtn,
   LetterContainerDiv,
 } from './ContactItem.styled';
 import { Loader } from '../Loader/Loader';
@@ -69,6 +70,8 @@ const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
     setIsOpenModal(false);
   };
 
+  useThemeContext()
+  
   return (
     <ContactLi>
       <ContactContainerDiv>
@@ -95,7 +98,7 @@ const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
               <BsPencil />
               Edit
             </EditContactBtn>
-            <ContactBtn
+            <ContactDeleteBtn
               type="button"
               disabled={isDeleting}
               onClick={() => onDeleteContact(contact.id)}
@@ -103,7 +106,7 @@ const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
               <BsDashCircle />
               {isDeleting && <Loader />}
               Delete
-            </ContactBtn>
+            </ContactDeleteBtn>
           </ContactActionsContainer>
         )}
       </ContactContainerDiv>

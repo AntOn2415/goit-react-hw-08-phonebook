@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { BsPencil, BsDashCircle } from 'react-icons/bs';
 import { deleteContact } from 'redux/operations/contactsOperations';
+import { useThemeContext } from '../../hooks/ThemeContext'; 
 import {
   ContactLi,
   ContactContainerDiv,
@@ -13,7 +14,7 @@ import {
   PhoneSpan,
   ContactActionsContainer,
   EditContactBtn,
-  ContactBtn,
+  ContactDeleteBtn,
 } from './RecentlyAddedContactItem.styled';
 import { Loader } from '../Loader/Loader';
 import { getRandomHexColor } from 'helpers';
@@ -63,6 +64,8 @@ const RecentlyAddedContactItem = ({ contact, selectedContactId, toggleActions })
     setIsOpenModal(false);
   };
 
+  useThemeContext();
+
   return (
     <ContactLi>
       <ContactContainerDiv>
@@ -84,7 +87,7 @@ const RecentlyAddedContactItem = ({ contact, selectedContactId, toggleActions })
               <BsPencil />
               Edit
             </EditContactBtn>
-            <ContactBtn
+            <ContactDeleteBtn
               type="button"
               disabled={isDeleting}
               onClick={() => onDeleteContact(contact.id)}
@@ -92,7 +95,7 @@ const RecentlyAddedContactItem = ({ contact, selectedContactId, toggleActions })
               <BsDashCircle />
               {isDeleting && <Loader />}
               Delete
-            </ContactBtn>
+            </ContactDeleteBtn>
           </ContactActionsContainer>
         )}
       </ContactContainerDiv>

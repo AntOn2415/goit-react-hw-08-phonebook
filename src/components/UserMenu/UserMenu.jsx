@@ -5,6 +5,7 @@ import { useAuth } from '../../hooks/useAuth';
 import { UserMenuContainerDiv, NameSpan, BtnLogout } from './UserMenu.styled';
 import { BsDoorClosed, BsDoorOpen } from 'react-icons/bs';
 import { resetContacts } from '../../redux/slices/contactsSlice';
+import { useThemeContext } from '../../hooks/ThemeContext'; 
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
@@ -27,7 +28,9 @@ export const UserMenu = () => {
     } else {
       userEmailToShow = userEmail.substring(0, 15);
     }
-  }
+  };
+
+  useThemeContext();
 
   return (
     <UserMenuContainerDiv>

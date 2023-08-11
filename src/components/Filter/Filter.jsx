@@ -4,6 +4,7 @@ import { DebounceInput } from 'react-debounce-input';
 import { BsSearch } from 'react-icons/bs';
 import { setFilter } from 'redux/slices/filterSlice';
 import { LoaderThreeDots } from '../Loader/Loader';
+import { useThemeContext } from '../../hooks/ThemeContext'; 
 import {
   FilterSection,
   TitleHiddenH2,
@@ -45,6 +46,8 @@ const Filter = () => {
       ? 'Find contacts by Name'
       : 'Find contacts by Number';
   };
+  
+useThemeContext();
 
   return (
     <FilterSection>
