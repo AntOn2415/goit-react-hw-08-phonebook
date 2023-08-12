@@ -6,13 +6,13 @@ import { toastConfig } from 'helpers';
 import { ContainerDiv } from './Layout.styled';
 import 'react-toastify/dist/ReactToastify.css';
 import { LoaderForLayout } from 'components/Loader/Loader';
-import { useThemeContext } from '../../hooks/ThemeContext'; 
+import { useThemeContext } from '../../hooks/ThemeContext';
 
 export const Layout = () => {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
-  
-  useThemeContext();
+
+  const { theme } = useThemeContext();
 
   return (
     <>
@@ -21,7 +21,7 @@ export const Layout = () => {
         <Suspense fallback={<LoaderForLayout />}>
           <Outlet />
         </Suspense>
-        <ToastContainer {...toastConfig} />
+        <ToastContainer {...toastConfig} theme={theme.current.theme} />
       </ContainerDiv>
     </>
   );

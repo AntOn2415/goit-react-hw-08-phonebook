@@ -1,4 +1,7 @@
 export const lightTheme = {
+  current: {
+    theme: 'light',
+  },
   colors: {
     primary: '#27ae60',
     secondary: '#2ecc71',
@@ -43,6 +46,9 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
+  current: {
+    theme: 'dark',
+  },
   colors: {
     primary: '#27ae60',
     secondary: '#2ecc71',
