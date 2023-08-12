@@ -12,7 +12,6 @@ export const AppBar = () => {
 
   const { theme, onChangeTheme } = useThemeContext();
   const isLightTheme = theme === LIGHT;
-  console.log(theme);
 
   return (
     <Header>
