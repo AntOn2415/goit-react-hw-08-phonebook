@@ -6,12 +6,10 @@ export const NavUl = styled.ul`
   justify-content: center;
   align-items: center;
   gap: 10px;
-  
 `;
 
 export const NavLi = styled.li`
   font-size: ${({ theme }) => theme.fontSizes.medium};
-  z-index: 10;
 `;
 
 export const StyledLink = styled(NavLink)`

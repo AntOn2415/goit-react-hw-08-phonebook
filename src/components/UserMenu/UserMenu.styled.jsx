@@ -7,7 +7,6 @@ export const UserMenuContainerDiv = styled.div`
   justify-content: center;
   gap: 4px;
   cursor: default;
-  z-index: 10;
   @media screen and (min-width: 740px) {
     flex-direction: row;
     align-items: center;
@@ -37,10 +36,12 @@ export const BtnLogout = styled.button`
   cursor: ${props => (props.isLoading ? 'not-allowed' : 'pointer')};
   box-shadow: ${({ theme }) => theme.shadows.default};
   transition: box-shadow 300ms, background-color 300ms ease;
-  z-index: 10;
   :hover,
   :focus {
     box-shadow: ${({ theme }) => theme.shadows.hover};
-    background-color: ${props => (props.isLoading ? props.theme.colors.primary : props.theme.colors.secondary)};
+    background-color: ${props =>
+      props.isLoading
+        ? props.theme.colors.primary
+        : props.theme.colors.secondary};
   }
 `;

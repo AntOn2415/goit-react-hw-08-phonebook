@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useMediaQuery } from '@react-hook/media-query';
 import { BsPencil, BsTelephone, BsDashCircle } from 'react-icons/bs';
 import { deleteContact } from 'redux/operations/contactsOperations';
 import { uniqueFirstLettersContactsSelector } from 'redux/selectors';
-import { useThemeContext } from '../../hooks/ThemeContext'; 
+import { useThemeContext } from '../../hooks/ThemeContext';
 import {
   ContactLi,
   FirstLetterContactsGroupDiv,
@@ -36,8 +37,43 @@ const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
 
   const { id, name, number } = contact;
 
-  const trimmedName =
-    contact.name.length > 24 ? `${contact.name.slice(0, 20)}...` : contact.name;
+  const isScreenS = useMediaQuery('(min-width: 200px)');
+  const isScreenL = useMediaQuery('(min-width: 375px)');
+  const isScreenX = useMediaQuery('(min-width: 1024px)');
+
+  let trimmedName = contact.name;
+  let trimmedNumber = contact.number;
+
+  if (isScreenS) {
+    trimmedName =
+      contact.name.length > 14
+        ? `${contact.name.slice(0, 10)}...`
+        : contact.name;
+    trimmedNumber =
+      contact.number.length > 10
+        ? `${contact.number.slice(0, 9)}...`
+        : contact.number;
+  }
+  if (isScreenL) {
+    trimmedName =
+      contact.name.length > 24
+        ? `${contact.name.slice(0, 20)}...`
+        : contact.name;
+    trimmedNumber =
+      contact.number.length > 20
+        ? `${contact.number.slice(0, 19)}...`
+        : contact.number;
+  }
+  if (isScreenX) {
+    trimmedName =
+      contact.name.length > 34
+        ? `${contact.name.slice(0, 30)}...`
+        : contact.name;
+    trimmedNumber =
+      contact.number.length > 24
+        ? `${contact.number.slice(0, 24)}...`
+        : contact.number;
+  }
 
   const isActionsContainerOpen = selectedContactId === contact.id;
 
@@ -70,8 +106,8 @@ const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
     setIsOpenModal(false);
   };
 
-  useThemeContext()
-  
+  useThemeContext();
+
   return (
     <ContactLi>
       <ContactContainerDiv>
@@ -83,7 +119,7 @@ const ContactItem = ({ contact, selectedContactId, toggleActions }) => {
           </FirstLetterNameDiv>
           <ContactContentP onClick={handleContactContentClick}>
             <NameSpan>{trimmedName}</NameSpan>
-            <PhoneSpan>{number}</PhoneSpan>
+            <PhoneSpan>{trimmedNumber}</PhoneSpan>
           </ContactContentP>
           <CallA href={`tel:${number}`} title="Call">
             <ContainerIconSpan>
@@ -140,4 +176,3 @@ ContactItem.propTypes = {
 };
 
 export default ContactItem;
-

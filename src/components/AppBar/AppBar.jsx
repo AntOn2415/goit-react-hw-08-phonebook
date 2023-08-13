@@ -16,11 +16,15 @@ export const AppBar = () => {
     <Header>
       <HeaderContainer>
         <Navigation />
+        <ToggleButton onClick={onChangeTheme}>
+          {isLightTheme ? (
+            <BsFillMoonStarsFill />
+          ) : (
+            <BsFillBrightnessHighFill />
+          )}
+        </ToggleButton>
         {isLoggedIn ? <UserMenu /> : <AuthNav />}
       </HeaderContainer>
-      <ToggleButton onClick={onChangeTheme}>
-        {isLightTheme ? <BsFillMoonStarsFill /> : <BsFillBrightnessHighFill />}
-      </ToggleButton>
     </Header>
   );
 };

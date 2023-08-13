@@ -1,4 +1,3 @@
-
 export const MediaScreenCommon = `
 @media screen and (max-width: 667px) {
   max-width: 740px; 
@@ -34,7 +33,6 @@ export const FormCommon = `
   gap: 10px;
   flex-direction: column;
 `;
-
 
 export const LabelCommon = `
   position: relative;
@@ -82,7 +80,7 @@ margin-left: auto;
 
 // contact item styles
 
-export const ContactLiCommon =`
+export const ContactLiCommon = `
   display: flex;
 `;
 
@@ -97,7 +95,7 @@ export const ContactContainerCommon = `
     min-width: 390px;
   }
 
-  @media screen and (min-width: 668px) and (max-width: 717px) {
+  @media screen and (min-width: 668px) and (max-width: 752px) {
     max-width: 340px;
   }
 `;
@@ -155,7 +153,6 @@ export const ContactActionsContainerCommon = `
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 `;
-
 
 export const EditContactBtnCommon = `
   display: flex;

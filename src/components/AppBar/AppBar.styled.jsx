@@ -1,8 +1,5 @@
-import styled, { keyframes } from 'styled-components';
-import { zoomIn } from 'react-animations';
+import styled from 'styled-components';
 import { MediaScreenCommon } from '../componentStyles';
-
-const zoomInAnimation = keyframes`${zoomIn}`;
 
 export const Header = styled.div`
   border-bottom: ${({ theme }) => theme.borders.border};
@@ -25,26 +22,20 @@ export const HeaderContainer = styled.div`
 `;
 
 export const ToggleButton = styled.button`
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-left: 60px;
-  padding-bottom: 8px;
+  padding-top: 6px;
+  margin-left: auto;
+  margin-right: 10px;
   height: 60px;
-  width: calc(100% - 200px);
-  font-size: 30px;
-  top: 0;
-  left: 80px;
-  color: transparent;
+  width: 30px;
+  font-size: 16px;
+  color: ${({ theme }) => theme.colors.toggleTheme};
   background-color: transparent;
   border: none;
-  z-index: 1;
-  /* cursor: pointer; */
+  transition: font-size 500ms, color 500ms ease;
+  cursor: pointer;
 
   :hover {
-    color: ${({ theme }) => theme.colors.toggleTheme};
-    animation: 5000ms ${zoomInAnimation};
-    cursor: pointer;
+    font-size: 30px;
+    color: ${({ theme }) => theme.colors.toggleThemeHover};
   }
 `;
