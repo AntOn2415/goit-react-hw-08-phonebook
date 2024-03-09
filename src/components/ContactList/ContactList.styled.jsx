@@ -9,7 +9,7 @@ import {
 
 export const TitleHiddenH2 = styled.h2`
   ${VisibilityHidden};
-`
+`;
 
 export const ContactsContainer = styled.div`
   ${ContactsContainerCommon}
@@ -21,10 +21,11 @@ export const ContactUl = styled.ul`
 
 export const LoaderRotatingLinesContainer = styled.div`
   ${LoaderRotatingLinesContainerCommon};
-background-color: ${({ theme }) => theme.colors.backgroundColorLoader};`;
+  background-color: ${({ theme }) => theme.colors.backgroundColorLoader};
+`;
 
 export const EmptyContactsMessage = styled.p`
   ${EmptyContactsMessageCommon};
-font-size: ${({ theme }) => theme.fontSizes.large};`;
-
-
+  font-size: ${({ theme }) => theme.fontSizes.large};
+  color: ${({ theme }) => theme.colors.textFocus};
+`;

@@ -1,5 +1,13 @@
 import styled from 'styled-components';
-import {FormCommon, LabelCommon, IconWrapperCommon, InputCommon, InputFormCommon, BtnCommon} from '../componentStyles';
+
+import {
+  FormCommon,
+  LabelCommon,
+  IconWrapperCommon,
+  InputCommon,
+  InputFormCommon,
+  BtnCommon,
+} from '../componentStyles';
 
 export const FormContainer = styled.div`
   padding: 30px 0 0;
@@ -35,11 +43,11 @@ export const InputForm = styled.input`
   ${InputCommon};
   border: ${({ theme }) => theme.borders.border};
   font-size: ${({ theme }) => theme.fontSizes.medium};
-  border-radius:  ${({ theme }) => theme.borders.borderRadius};
+  border-radius: ${({ theme }) => theme.borders.borderRadius};
   color: ${({ theme }) => theme.colors.text};
   background-color: ${({ theme }) => theme.colors.backgroundSecondary};
   ${InputFormCommon};
-:hover,
+  :hover,
   :focus {
     border-color: ${({ theme }) => theme.borders.borderColorHover};
   }
@@ -54,27 +62,30 @@ export const InputForm = styled.input`
 
   ::placeholder {
     color: ${({ theme }) => theme.colors.placeholder};
-  };
-
+  }
 `;
 
 export const BtnForm = styled.button`
   ${BtnCommon};
-font-size: ${({ theme }) => theme.fontSizes.medium};
+  font-size: ${({ theme }) => theme.fontSizes.medium};
   background-color: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.pure};
-  border-radius:  ${({ theme }) => theme.borders.borderRadius};
+  border-radius: ${({ theme }) => theme.borders.borderRadius};
   cursor: ${props => (props.isLoading ? 'not-allowed' : 'pointer')};
   box-shadow: ${({ theme }) => theme.shadows.default};
 
   :hover,
   :focus {
     box-shadow: ${({ theme }) => theme.shadows.hover};
-    background-color: ${props => (props.isLoading ? props.theme.colors.primary : props.theme.colors.secondary)};
+    background-color: ${props =>
+      props.isLoading
+        ? props.theme.colors.primary
+        : props.theme.colors.secondary};
   }
 
   :disabled {
     background-color: rgba(39, 174, 96, 0.6);
     box-shadow: ${({ theme }) => theme.shadows.default};
     cursor: not-allowed;
-  }`;
+  }
+`;

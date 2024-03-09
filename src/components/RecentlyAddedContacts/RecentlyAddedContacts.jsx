@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { LoaderRotatingLines } from '../Loader/Loader';
-import RecentlyAddedContactItem from '../RecentlyAddedContactItem/RecentlyAddedContactItem'
+import RecentlyAddedContactItem from '../RecentlyAddedContactItem/RecentlyAddedContactItem';
 import { fetchContacts } from 'redux/operations/contactsOperations';
-import { useThemeContext } from '../../hooks/ThemeContext'; 
-import {
-  contactsSelector,
-} from 'redux/selectors';
+import { useThemeContext } from '../../hooks/ThemeContext';
+import { contactsSelector } from 'redux/selectors';
 import {
   TitleH2,
   ContactsContainer,
   LoaderRotatingLinesContainer,
   ContactUl,
 } from './RecentlyAddedContacts.styled';
-
 
 const RecentlyAddedContacts = () => {
   const contacts = useSelector(contactsSelector);
@@ -32,7 +29,6 @@ const RecentlyAddedContacts = () => {
     });
   }, [dispatch]);
 
-
   const toggleActions = contactId => {
     setSelectedContactId(prevId => (prevId === contactId ? null : contactId));
   };
@@ -42,7 +38,7 @@ const RecentlyAddedContacts = () => {
       toggleActions(selectedContactId);
     }
   }, [selectedContactId]);
-  
+
   useThemeContext();
 
   if (isFetchingContacts) {
@@ -51,22 +47,25 @@ const RecentlyAddedContacts = () => {
         <LoaderRotatingLines />
       </LoaderRotatingLinesContainer>
     );
-  };
+  }
 
   return (
     <section>
       <TitleH2>Recently added contacts</TitleH2>
       <ContactsContainer>
-      {!isEmptyFilter && (
+        {!isEmptyFilter && (
           <ContactUl>
-            {contacts.slice().reverse().map(contact => (
-              <RecentlyAddedContactItem
-                key={contact.id}
-                contact={contact}
-                selectedContactId={selectedContactId}
-                toggleActions={toggleActions}
-              />
-            ))}
+            {contacts
+              .slice()
+              .reverse()
+              .map(contact => (
+                <RecentlyAddedContactItem
+                  key={contact.id}
+                  contact={contact}
+                  selectedContactId={selectedContactId}
+                  toggleActions={toggleActions}
+                />
+              ))}
           </ContactUl>
         )}
       </ContactsContainer>
